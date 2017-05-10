@@ -27,7 +27,7 @@ class StageMainMenu extends Sprite
 		myStage = stageref;
 	}
 
-	public function start() 
+	public static function start() 
 	{
 		addBackground();
 		showTitle();

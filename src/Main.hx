@@ -14,7 +14,7 @@ class Main extends Sprite
 	{
 		super();
 		
-		SoundManager.start();
+		//SoundManager.start();
 		StageMainMenu.setup(stage);
 		StageMainMenu.start();
 		// Assets:
