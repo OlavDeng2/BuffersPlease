@@ -14,6 +14,9 @@ class Main extends Sprite
 	{
 		super();
 		
+		SoundManager.start();
+		StageMainMenu.setup(stage);
+		StageTitle.start(
 		// Assets:
 		// openfl.Assets.getBitmapData("img/assetname.jpg");
 	}
