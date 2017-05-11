@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "6",
+			build: "10",
 			company: "Olav",
 			file: "BuffersPlease",
 			fps: 60,
@@ -43,7 +43,7 @@ import haxe.macro.Expr;
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 480,
+					height: 720,
 					hidden: #if munit true #else null #end,
 					maximized: null,
 					minimized: null,
@@ -52,7 +52,7 @@ import haxe.macro.Expr;
 					stencilBuffer: true,
 					title: "BuffersPlease",
 					vsync: false,
-					width: 800,
+					width: 720,
 					x: null,
 					y: null
 				},
@@ -72,7 +72,7 @@ import haxe.macro.Expr;
 		
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed (projectName, null, 800, 480, config);
+		lime.system.System.embed (projectName, null, 720, 720, config);
 		#end
 		#else
 		create (config);
