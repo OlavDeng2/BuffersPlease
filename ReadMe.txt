@@ -4,4 +4,4 @@ This project is compiled and developed using Haxe, OpenFL. Be sure to have those
 
 -Team Andrey Nekobear Studios
 
-FFS Git
+This is a test by neko
