@@ -16,8 +16,9 @@ import openfl.system.System;
  */
 class UIButton extends Sprite
 {
-	public static function exitButton(myStage:Stage)
+	public function new(myStage:Stage)
 	{
+		super(); 
 		//Get the data for the image to render
 		var exitButtonImageData = Assets.getBitmapData('img/UIElements/ExitButton.png');
 		var exitButtonImage = new Bitmap(exitButtonImageData);
@@ -27,15 +28,15 @@ class UIButton extends Sprite
 		exitButtonImage.y = -exitButtonImage.height / 2;
 		
 		//add the image
-		myStage.addChild(exitButtonImage);
-		
+		addChild(exitButtonImage);
+			
 		//event listener so that clicking stuff actually works
-		myStage.addEventListener(MouseEvent.CLICK, exitButtonPress);
+		addEventListener(MouseEvent.CLICK, exitButtonPress);
 	}
 	
-	static function exitButtonPress(event:MouseEvent)
+	function exitButtonPress(event:MouseEvent)
 	{
-		System.exit(0);
+
 	}
 	
 }

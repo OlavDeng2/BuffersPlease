@@ -39,7 +39,7 @@ class StageMainMenu extends Sprite
 		showTitle();
 		startButton();
 		leaderboardButton();
-		UIButton.exitButton(myStage);
+		UIExitButton.ExitButton(myStage);
 	}
 	
 	static function addBackground()
