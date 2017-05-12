@@ -16,17 +16,25 @@ import openfl.system.System;
  */
 class Button extends Sprite
 {
+	public function new(myStage:Stage, buttonName:String)
 	{
 		super(); 
 		//Get the data for the image to render
+		var buttonImageData = Assets.getBitmapData('img/UIElements/${buttonName}.png');
+		var buttonImage = new Bitmap(buttonImageData);
 		
 		//set the transformation point of the image at its center
+		buttonImage.x = -buttonImage.width / 2;
+		buttonImage.y = -buttonImage.height / 2;
 		
 		//add the image
+		addChild(buttonImage);
 			
 		//event listener so that clicking stuff actually works
+		addEventListener(MouseEvent.CLICK, buttonPress);
 	}
 	
+	function buttonPress(event:MouseEvent)
 	{
 
 	}

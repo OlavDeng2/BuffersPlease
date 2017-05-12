@@ -6,16 +6,9 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
-import openfl.events.KeyboardEvent;
 import openfl.text.Font;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
-import openfl.Lib;
-import openfl.events.MouseEvent;
-import openfl.system.System;
-
-
-
 
 /**
  * ...
@@ -24,22 +17,24 @@ import openfl.system.System;
 class StageMainMenu extends Sprite
 {
 	
-	private static var myStage:Stage;
-	private static var buttonSprite : Sprite = new Sprite();	
-
 	
+	//Declare some necesarry variables
+	private static var myStage:Stage;
+	
+	//do the necesarry setups
 	public static function setup(stageref:Stage)
 	{
 		myStage = stageref;
 	}
-
+	
+	//Create and draw the main menu
 	public static function start() 
 	{
 		addBackground();
 		showTitle();
-		startButton();
-		leaderboardButton();
-		UIExitButton.ExitButton(myStage);
+		UIButton.startButton(myStage, 100, 100);
+		UIButton.leaderboardButton(myStage, 100, 125);
+		UIButton.exitButton(myStage, 100, 150);
 	}
 	
 	static function addBackground()
@@ -51,13 +46,4 @@ class StageMainMenu extends Sprite
 		
 	}
 	
-	static function startButton()
-	{
-		
-	}
-	
-	static function leaderboardButton()
-	{
-		
-	}
 }

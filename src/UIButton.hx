@@ -65,7 +65,6 @@ class UIButton extends Button
 	
 	
 	//Leaderboard Button Function
-	
 	public static function leaderboardButton(myStage:Stage, xPos:Int, yPos:Int)
 	{
 		
