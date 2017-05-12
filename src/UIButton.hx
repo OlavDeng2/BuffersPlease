@@ -7,6 +7,8 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.display.Stage;
+import openfl.system.System;
+
 
 /**
  * ...
@@ -28,12 +30,12 @@ class UIButton extends Sprite
 		myStage.addChild(exitButtonImage);
 		
 		//event listener so that clicking stuff actually works
-		//addEventListener(MouseEvent.CLICK, exitButtonPress);
+		myStage.addEventListener(MouseEvent.CLICK, exitButtonPress);
 	}
 	
-	function exitButtonPress(event:MouseEvent)
+	static function exitButtonPress(event:MouseEvent)
 	{
-		Sys.println("do nothing");
+		System.exit(0);
 	}
 	
 }
