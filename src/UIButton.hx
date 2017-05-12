@@ -1,6 +1,5 @@
 package;
 
-
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -14,29 +13,67 @@ import openfl.system.System;
  * ...
  * @author Olav
  */
-class UIButton extends Sprite
+class UIButton extends Button
 {
-	public function new(myStage:Stage)
-	{
-		super(); 
-		//Get the data for the image to render
-		var exitButtonImageData = Assets.getBitmapData('img/UIElements/ExitButton.png');
-		var exitButtonImage = new Bitmap(exitButtonImageData);
-		
-		//set the transformation point of the image at its center
-		exitButtonImage.x = -exitButtonImage.width / 2;
-		exitButtonImage.y = -exitButtonImage.height / 2;
-		
-		//add the image
-		addChild(exitButtonImage);
-			
-		//event listener so that clicking stuff actually works
-		addEventListener(MouseEvent.CLICK, exitButtonPress);
-	}
-	
-	function exitButtonPress(event:MouseEvent)
-	{
 
+	
+	//Exit Button Function
+	public static function exitButton(myStage:Stage, xPos:Int, yPos:Int)
+	{
+		var pressableExitButton:Button = new Button(myStage, "ExitButton");
+		//set position
+		pressableExitButton.y = yPos;
+		pressableExitButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableExitButton);
+		
+		//add event listener
+		pressableExitButton.addEventListener(MouseEvent.CLICK, exitButtonPress);
 	}
 	
+	private static function exitButtonPress(event : MouseEvent)
+	{
+		var pressableExitButton:Button = cast (event.target);
+		//Exit the game
+		System.exit(0);
+	}
+	
+	
+	
+	//Start Button Function
+	public static function startButton(myStage:Stage, xPos:Int, yPos:Int)
+	{
+		var pressableStartButton:Button = new Button(myStage, "ExitButton");
+		//set position
+		pressableStartButton.y = yPos;
+		pressableStartButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableStartButton);
+		
+		//add event listener
+		pressableStartButton.addEventListener(MouseEvent.CLICK, startButtonPress);
+	}
+	
+	private static function startButtonPress(event : MouseEvent)
+	{
+		var pressableStartButton:Button = cast (event.target);
+		Sys.println("insert new Scene Functionality");
+	}
+	
+	
+	
+	//Leaderboard Button Function
+	
+	public static function leaderboardButton(myStage:Stage, xPos:Int, yPos:Int)
+	{
+		
+	}
+	
+	private static function leaderboardButtonPress(event:MouseEvent)
+	{
+		var pressableLeaderboardButton:Button = cast(event.target);
+		Sys.println("Insert Leaderboard functionality here");
+	}
 }
