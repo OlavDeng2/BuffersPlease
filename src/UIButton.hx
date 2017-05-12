@@ -13,10 +13,12 @@ import openfl.system.System;
  * ...
  * @author Olav
  */
+
+ //In UIButton you will find all the UI Buttons which you might need available, everything from moving to another stage to the exit button.
 class UIButton extends Button
 {
 
-	
+
 	//Exit Button Function
 	public static function exitButton(myStage:Stage, xPos:Int, yPos:Int)
 	{
@@ -59,7 +61,7 @@ class UIButton extends Button
 	private static function startButtonPress(event : MouseEvent)
 	{
 		var pressableStartButton:Button = cast (event.target);
-		Sys.println("insert new Scene Functionality");
+		SceneManager.switchToStageCharacterCreation();
 	}
 	
 	
@@ -68,11 +70,23 @@ class UIButton extends Button
 	public static function leaderboardButton(myStage:Stage, xPos:Int, yPos:Int)
 	{
 		
+		var pressableLeaderboardButton:Button = new Button(myStage, "ExitButton");
+		//set position
+		pressableLeaderboardButton.y = yPos;
+		pressableLeaderboardButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableLeaderboardButton);
+		
+		//add event listener
+		pressableLeaderboardButton.addEventListener(MouseEvent.CLICK, leaderboardButtonPress);
 	}
 	
 	private static function leaderboardButtonPress(event:MouseEvent)
 	{
 		var pressableLeaderboardButton:Button = cast(event.target);
-		Sys.println("Insert Leaderboard functionality here");
+		
+		SceneManager.switchToStageLeaderboard();
 	}
+	
 }

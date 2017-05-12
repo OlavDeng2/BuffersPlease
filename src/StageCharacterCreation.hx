@@ -6,13 +6,14 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
+
 /**
  * ...
  * @author Olav
  */
-class StageLeaderboard extends Sprite
+class StageCharacterCreation extends Sprite
 {
-	
+
 		
 	//Declare some necesarry variables
 	private static var myStage:Stage;

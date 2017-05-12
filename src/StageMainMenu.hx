@@ -14,6 +14,8 @@ import openfl.text.TextFormat;
  * ...
  * @author Olav
  */
+
+ //This is the Main Menu Stage. This is where you can go to either the game, the leaderboard and exit the game.
 class StageMainMenu extends Sprite
 {
 	
@@ -32,9 +34,14 @@ class StageMainMenu extends Sprite
 	{
 		addBackground();
 		showTitle();
-		UIButton.startButton(myStage, 100, 100);
-		UIButton.leaderboardButton(myStage, 100, 125);
-		UIButton.exitButton(myStage, 100, 150);
+		
+		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
+		SceneManager.setMyStage(myStage);
+		
+		//Really self explanatory, if not see the UIButton class
+		UIButton.startButton(myStage, 360, 100);
+		UIButton.leaderboardButton(myStage, 360, 300);
+		UIButton.exitButton(myStage, 360, 500);
 	}
 	
 	static function addBackground()
