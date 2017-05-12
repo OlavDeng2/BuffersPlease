@@ -11,6 +11,10 @@ import openfl.text.Font;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.Lib;
+import openfl.events.MouseEvent;
+import openfl.system.System;
+
+
 
 
 /**
@@ -21,6 +25,8 @@ class StageMainMenu extends Sprite
 {
 	
 	private static var myStage:Stage;
+	private static var buttonSprite : Sprite = new Sprite();	
+
 	
 	public static function setup(stageref:Stage)
 	{
@@ -33,7 +39,7 @@ class StageMainMenu extends Sprite
 		showTitle();
 		startButton();
 		leaderboardButton();
-		exitButton();
+		UIButton.exitButton(myStage);
 	}
 	
 	static function addBackground()
@@ -51,11 +57,6 @@ class StageMainMenu extends Sprite
 	}
 	
 	static function leaderboardButton()
-	{
-		
-	}
-	
-	static function exitButton()
 	{
 		
 	}
