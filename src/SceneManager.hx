@@ -45,7 +45,12 @@ class SceneManager
 		StageCharacterCreation.start();
 	}
 	
-	
+	//This function switches you to the mixing mini game
+	public static function switchToStageMixing()
+	{
+		StageMixing.setup(myStage);
+		StageMixing.start();
+	}
 		
 
 }
