@@ -33,15 +33,18 @@ class StageMainMenu extends Sprite
 	//Create and draw the main menu
 	public static function start() 
 	{
-		addBackground();
-		showTitle();
-		
+			
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		
+		
+		addBackground();
+		showTitle();
+	
+		
 		//Really self explanatory, if not see the UIButton class
-		UIButton.startButton(360, 100);
-		UIButton.leaderboardButton(360, 400);
+		UIButton.startButton(360, 250);
+		UIButton.leaderboardButton(360, 500);
 		UIButton.exitButton(360, 900);
 	}
 	

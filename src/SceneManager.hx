@@ -1,7 +1,7 @@
 package;
 
 import openfl.display.Stage;
-
+//import openfl.system.System;
 /**
  * ...
  * @author Olav

@@ -25,7 +25,8 @@ class StageLeaderboard extends Sprite
 
 	public static function start() 
 	{
-		UIButton.exitButton(50, 50);
+		UIButton.mainMenuButton(360, 360);
+		UIButton.exitButton(360, 720);
 	}
 	
 }

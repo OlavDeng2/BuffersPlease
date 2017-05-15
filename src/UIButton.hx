@@ -201,4 +201,26 @@ class UIButton extends Button
 		myStage.removeChildren();
 		SceneManager.switchToStageMixing();
 	}
+	
+	//Main Menu Button
+	public static function mainMenuButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableMainMenuButton:Button = new Button(myStage, "Leaderboard");
+		
+		pressableMainMenuButton.y = yPos;
+		pressableMainMenuButton.x = xPos;
+		
+		myStage.addChild(pressableMainMenuButton);
+		
+		pressableMainMenuButton.addEventListener(MouseEvent.CLICK, mainMenuButtonPress);
+	}
+	
+	private static function mainMenuButtonPress(event:MouseEvent)
+	{
+		var pressableMainMenuButton:Button = cast(event.target);
+		//removes all children so that nothing is remaining of the previous stage.
+		myStage.removeChildren();
+		SceneManager.switchToStageMainMenu();
+	}
 }
