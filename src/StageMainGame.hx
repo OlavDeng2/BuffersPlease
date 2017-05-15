@@ -35,21 +35,26 @@ class StageMainGame extends Sprite
 	{
 		SceneManager.setMyStage(myStage);
 		
-		addShackBack();
-		
-		addClient();
-		addDesk();
-		addDrawerClosed();
-		addMeter();
-		addChemguide();
-		addNotepad();
-		addScreenBox();
-		addBeaker();
+		addShack();
 		UIButton.mixingButton(600, 750);
 		
 	}
 	
+	static function addShack()
+	{
+		ImageManager.addImage("img/shackUI/Background.png");
+		ImageManager.addImage("img/shackUI/Client.png");
+		ImageManager.addImage("img/shackUI/CupboardClosed.png");
+		ImageManager.addImage("img/shackUI/Screen.png");
+		//ImageManager.addImage("img/shackUI/CupboardOpened.png");
+		ImageManager.addImage("img/shackUI/Desk.png");
+		ImageManager.addImage("img/shackUI/Meter.png");
+		ImageManager.addImage("img/shackUI/Notepad.png");
+		ImageManager.addImage("img/shackUI/Chemguide.png");
+		ImageManager.addImage("img/shackUI/Beaker.png");
 
+
+	}
 	static function addShackBack()
 	{
 		var shackBackData:BitmapData = Assets.getBitmapData("img/shackUI/Background.png");
