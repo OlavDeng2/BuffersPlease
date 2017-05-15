@@ -41,13 +41,16 @@ class StageMainMenu extends Sprite
 		
 		//Really self explanatory, if not see the UIButton class
 		UIButton.startButton(myStage, 360, 100);
-		UIButton.leaderboardButton(myStage, 360, 300);
-		UIButton.exitButton(myStage, 360, 500);
+		UIButton.leaderboardButton(myStage, 360, 400);
+		UIButton.exitButton(myStage, 360, 900);
 	}
 	
 	static function addBackground()
 	{
+		var backgroundImageData = Assets.getBitmapData('img/Backgrounds/Main_Menu.png');
+		var backgroundImage = new Bitmap(backgroundImageData);
 		
+		myStage.addChild(backgroundImage);
 	}
 	static function showTitle()
 	{
