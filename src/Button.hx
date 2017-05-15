@@ -22,7 +22,7 @@ class Button extends Sprite
 	{
 		super(); 
 		//Get the data for the image to render
-		var buttonImageData = Assets.getBitmapData('img/UIElements/${buttonName}.png');
+		var buttonImageData = Assets.getBitmapData('img/Buttons/${buttonName}.png');
 		var buttonImage = new Bitmap(buttonImageData);
 		
 		//set the transformation point of the image at its center
