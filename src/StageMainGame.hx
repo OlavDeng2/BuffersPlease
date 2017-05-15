@@ -45,7 +45,6 @@ class StageMainGame extends Sprite
 		addNotepad();
 		addScreenBox();
 		addBeaker();
-		//addBell();
 		UIButton.mixingButton(600, 750);
 		
 	}
@@ -64,13 +63,6 @@ class StageMainGame extends Sprite
 		var beakerData:BitmapData = Assets.getBitmapData("img/shackUI/Beaker.png");
 		var beaker:Bitmap = new Bitmap(beakerData);
 		myStage.addChild(beaker);
-	}
-	
-	static function addBell()
-	{
-		var bellData:BitmapData = Assets.getBitmapData("img/shackUI/Bell.png");
-		var bell:Bitmap = new Bitmap(bellData);
-		myStage.addChild(bell);
 	}
 	
 	static function addChemguide()

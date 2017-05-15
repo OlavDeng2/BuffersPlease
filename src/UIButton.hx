@@ -17,9 +17,10 @@ import openfl.system.System;
  //In UIButton you will find all the UI Buttons which you might need available, everything from moving to another stage to the exit button.
 class UIButton extends Button
 {
-	
+	//variable to store the current stage that is being worked with
 	private static var myStage:Stage;
 	
+	//This function gets the current stage from the scene manager and sets it in this class so that all the buttons have the correct stage they are working with
 	private static function setMyStage()
 	{
 		myStage = SceneManager.getMyStage();
@@ -59,7 +60,6 @@ class UIButton extends Button
 	{
 		setMyStage();
 
-		
 		var pressableStartButton:Button = new Button(myStage, "Play");
 		//set position
 		pressableStartButton.y = yPos;
@@ -76,6 +76,7 @@ class UIButton extends Button
 	{
 		
 		var pressableStartButton:Button = cast (event.target);
+		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageCharacterCreation();
 	}
@@ -100,6 +101,7 @@ class UIButton extends Button
 	private static function nextButtonPress(event : MouseEvent)
 	{
 		var pressableNextButton:Button = cast (event.target);
+		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMainGame();
 	}
@@ -125,6 +127,7 @@ class UIButton extends Button
 	private static function leaderboardButtonPress(event:MouseEvent)
 	{
 		var pressableLeaderboardButton:Button = cast(event.target);
+		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageLeaderboard();
 	}
@@ -174,7 +177,7 @@ class UIButton extends Button
 	{
 		var pressableMusicOnButton:Button = cast(event.target);
 		
-		Sys.println("Music is now turned off");
+		Sys.println("Music is now turned on");
 	}
 	
 	//Mixing Minigame Button(bell)
@@ -194,6 +197,7 @@ class UIButton extends Button
 	private static function mixingButtonPress(event:MouseEvent)
 	{
 		var pressablemixingButton:Button = cast(event.target);
+		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMixing();
 	}
