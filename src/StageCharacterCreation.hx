@@ -26,7 +26,21 @@ class StageCharacterCreation extends Sprite
 
 	public static function start() 
 	{
+		
+		addBackground();
+		SceneManager.setMyStage(myStage);
+
 		UIButton.exitButton(myStage, 50, 50);
+		UIButton.nextButton(myStage, 300, 300);
+	}
+	
+	
+	static function addBackground()
+	{
+		var backgroundImageData = Assets.getBitmapData('img/Backgrounds/Main_Menu.png');
+		var backgroundImage = new Bitmap(backgroundImageData);
+		
+		myStage.addChild(backgroundImage);
 	}
 	
 }

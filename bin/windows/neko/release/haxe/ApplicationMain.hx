@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "111",
+			build: "131",
 			company: "Olav",
 			file: "BuffersPlease",
 			fps: 60,
@@ -43,7 +43,7 @@ import haxe.macro.Expr;
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 720,
+					height: 1280,
 					hidden: #if munit true #else null #end,
 					maximized: null,
 					minimized: null,
@@ -72,7 +72,7 @@ import haxe.macro.Expr;
 		
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed (projectName, null, 720, 720, config);
+		lime.system.System.embed (projectName, null, 720, 1280, config);
 		#end
 		#else
 		create (config);
