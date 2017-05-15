@@ -12,17 +12,8 @@ import openfl.display.Stage;
  */
 class StageMainGame extends Sprite
 {
-
-
-
-	
-	//var drawerCloseData:BitmapData = Assets.getBitmapData("shackUI/CupboardClosed.png");
-	//var drawerClose:Bitmap = new Bitmap(drawerCloseData);
-	
-	
-	
-	
-	
+	//add variables here if needed
+		
 	
 	
 	//do the necesarry setups
@@ -90,49 +81,49 @@ class StageMainGame extends Sprite
 	
 	static function addClient()
 	{
-		var clientData:BitmapData = Assets.getBitmapData("shackUI/Client.png");
+		var clientData:BitmapData = Assets.getBitmapData("img/shackUI/Client.png");
 		var client:Bitmap = new Bitmap(clientData);
 		myStage.addChild(client);
 	}
 	
 	static function addDrawerClosed()
 	{
-		var drawerCloseData:BitmapData = Assets.getBitmapData("shackUI/CupboardClosed.png");
+		var drawerCloseData:BitmapData = Assets.getBitmapData("img/shackUI/CupboardClosed.png");
 		var drawerClose:Bitmap = new Bitmap(drawerCloseData);
 		myStage.addChild(drawerClose);
 	}
 	
 	static function addDrawerOpened()
 	{
-		var drawerOpenData:BitmapData = Assets.getBitmapData("shackUI/CupboardOpened.png");
+		var drawerOpenData:BitmapData = Assets.getBitmapData("img/shackUI/CupboardOpened.png");
 		var drawerOpen:Bitmap = new Bitmap(drawerOpenData);
 		myStage.addChild(drawerOpen);
 	}
 	
 	static function addDesk()
 	{
-		var deskData:BitmapData = Assets.getBitmapData("shackUI/Desk.png");
+		var deskData:BitmapData = Assets.getBitmapData("img/shackUI/Desk.png");
 		var desk:Bitmap = new Bitmap(deskData);
 		myStage.addChild(desk);
 	}
 	
 	static function addMeter()
 	{
-		var meterData:BitmapData = Assets.getBitmapData("shackUI/Meter.png");
+		var meterData:BitmapData = Assets.getBitmapData("img/shackUI/Meter.png");
 		var meter:Bitmap = new Bitmap(meterData);
 		myStage.addChild(meter);
 	}
 	
 	static function addNotepad()
 	{
-		var notepadData:BitmapData = Assets.getBitmapData("shackUI/Notepad.png");
+		var notepadData:BitmapData = Assets.getBitmapData("img/shackUI/Notepad.png");
 		var notepad:Bitmap = new Bitmap(notepadData);
 		myStage.addChild(notepad);
 	}
 	
 	static function addScreenBox()
 	{
-		var screenData:BitmapData = Assets.getBitmapData("shackUI/Screen.png");
+		var screenData:BitmapData = Assets.getBitmapData("img/shackUI/Screen.png");
 		var screen:Bitmap = new Bitmap(screenData);
 		myStage.addChild(screen);
 	}
