@@ -26,7 +26,7 @@ class StageMixing extends Sprite
 
 	public static function start() 
 	{
-		UIButton.exitButton(myStage, 50, 50);
+		UIButton.exitButton(50, 50);
 	}
 		
 }

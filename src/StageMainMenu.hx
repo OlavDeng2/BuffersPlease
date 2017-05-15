@@ -40,9 +40,9 @@ class StageMainMenu extends Sprite
 		SceneManager.setMyStage(myStage);
 		
 		//Really self explanatory, if not see the UIButton class
-		UIButton.startButton(myStage, 360, 100);
-		UIButton.leaderboardButton(myStage, 360, 400);
-		UIButton.exitButton(myStage, 360, 900);
+		UIButton.startButton(360, 100);
+		UIButton.leaderboardButton(360, 400);
+		UIButton.exitButton(360, 900);
 	}
 	
 	static function addBackground()

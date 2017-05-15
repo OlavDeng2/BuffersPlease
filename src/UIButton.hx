@@ -17,11 +17,22 @@ import openfl.system.System;
  //In UIButton you will find all the UI Buttons which you might need available, everything from moving to another stage to the exit button.
 class UIButton extends Button
 {
-
-
-	//Exit Button Function
-	public static function exitButton(myStage:Stage, xPos:Int, yPos:Int)
+	
+	private static var myStage:Stage;
+	
+	private static function setMyStage()
 	{
+		myStage = SceneManager.getMyStage();
+
+	}
+	
+	//Exit Button Function
+	public static function exitButton(xPos:Int, yPos:Int)
+	{
+		
+		setMyStage();
+		
+		
 		var pressableExitButton:Button = new Button(myStage, "Quit");
 		//set position
 		pressableExitButton.y = yPos;
@@ -44,8 +55,11 @@ class UIButton extends Button
 	
 	
 	//Start Button Function
-	public static function startButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function startButton(xPos:Int, yPos:Int)
 	{
+		setMyStage();
+
+		
 		var pressableStartButton:Button = new Button(myStage, "Play");
 		//set position
 		pressableStartButton.y = yPos;
@@ -60,14 +74,17 @@ class UIButton extends Button
 	
 	private static function startButtonPress(event : MouseEvent)
 	{
+		
 		var pressableStartButton:Button = cast (event.target);
+		myStage.removeChildren();
 		SceneManager.switchToStageCharacterCreation();
 	}
 	
 	
 	//Next Button on the Character Creation Stage
-	public static function nextButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function nextButton(xPos:Int, yPos:Int)
 	{
+		setMyStage();
 		var pressableNextButton:Button = new Button(myStage, "Play");
 		//set position
 		pressableNextButton.y = yPos;
@@ -83,13 +100,15 @@ class UIButton extends Button
 	private static function nextButtonPress(event : MouseEvent)
 	{
 		var pressableNextButton:Button = cast (event.target);
+		myStage.removeChildren();
 		SceneManager.switchToStageMainGame();
 	}
 	
 	
 	//Leaderboard Button Function
-	public static function leaderboardButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function leaderboardButton(xPos:Int, yPos:Int)
 	{
+		setMyStage();
 		
 		var pressableLeaderboardButton:Button = new Button(myStage, "Leaderboard");
 		//set position
@@ -106,14 +125,14 @@ class UIButton extends Button
 	private static function leaderboardButtonPress(event:MouseEvent)
 	{
 		var pressableLeaderboardButton:Button = cast(event.target);
-		
+		myStage.removeChildren();
 		SceneManager.switchToStageLeaderboard();
 	}
 	
 	//Music Off button
-	public static function musicOffButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function musicOffButton(xPos:Int, yPos:Int)
 	{
-		
+		setMyStage();
 		var pressableMusicOffButton:Button = new Button(myStage, "Music Off");
 		//set position
 		pressableMusicOffButton.y = yPos;
@@ -135,8 +154,9 @@ class UIButton extends Button
 	
 	
 	//Music On Button
-	public static function musicOnButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function musicOnButton(xPos:Int, yPos:Int)
 	{
+		setMyStage();
 		
 		var pressableMusicOnButton:Button = new Button(myStage, "Music On");
 		//set position
@@ -155,5 +175,26 @@ class UIButton extends Button
 		var pressableMusicOnButton:Button = cast(event.target);
 		
 		Sys.println("Music is now turned off");
+	}
+	
+	//Mixing Minigame Button(bell)
+	public static function mixingButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableMixingButton:Button = new Button(myStage, "Mixing");
+		
+		pressableMixingButton.y = yPos;
+		pressableMixingButton.x = xPos;
+		
+		myStage.addChild(pressableMixingButton);
+		
+		pressableMixingButton.addEventListener(MouseEvent.CLICK, mixingButtonPress);
+	}
+	
+	private static function mixingButtonPress(event:MouseEvent)
+	{
+		var pressablemixingButton:Button = cast(event.target);
+		myStage.removeChildren();
+		SceneManager.switchToStageMixing();
 	}
 }

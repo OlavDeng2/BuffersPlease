@@ -45,7 +45,8 @@ class StageMainGame extends Sprite
 		addNotepad();
 		addScreenBox();
 		addBeaker();
-		addBell();
+		//addBell();
+		UIButton.mixingButton(600, 750);
 		
 	}
 	

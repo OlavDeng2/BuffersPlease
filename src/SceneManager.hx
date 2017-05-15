@@ -22,6 +22,11 @@ class SceneManager
 
 	}
 	
+	public static function getMyStage()
+	{
+		return(myStage);
+	}
+	
 	
 	//As you might imagine from the name, this function switches you to the Leaderboard Stage
 	public static function switchToStageLeaderboard() 

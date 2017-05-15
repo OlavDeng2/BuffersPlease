@@ -29,9 +29,8 @@ class StageCharacterCreation extends Sprite
 		
 		addBackground();
 		SceneManager.setMyStage(myStage);
-
-		UIButton.exitButton(myStage, 50, 50);
-		UIButton.nextButton(myStage, 300, 300);
+		
+		UIButton.nextButton(600, 900);
 	}
 	
 	
