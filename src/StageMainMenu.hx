@@ -22,6 +22,7 @@ class StageMainMenu extends Sprite
 	
 	//Declare some necesarry variables
 	private static var myStage:Stage;
+	//var menuBackData:BitmapData= Assets.getBitmapData("
 	
 	//do the necesarry setups
 	public static function setup(stageref:Stage)

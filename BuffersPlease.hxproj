@@ -16,12 +16,12 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="D:\Software\Haxe\haxe\lib\openfl\5,0,0" />
-    <class path="D:\Software\Haxe\haxe\lib\lime\4,1,0" />
-    <class path="D:\Software\Haxe\haxe\lib\actuate\1,8,7" />
+    <class path="D:\Program Files (x86)\Haxe\haxe\lib\openfl\5,0,0" />
+    <class path="D:\Program Files (x86)\Haxe\haxe\lib\lime\4,1,0" />
+    <class path="D:\Program Files (x86)\Haxe\haxe\lib\actuate\1,8,7" />
     <class path="src" />
-    <class path="D:\Software\Haxe\haxe\lib\openfl\5,0,0\externs\core\openfl" />
-    <class path="D:\Software\Haxe\haxe\lib\openfl\5,0,0\externs\extras" />
+    <class path="D:\Program Files (x86)\Haxe\haxe\lib\openfl\5,0,0\externs\core\openfl" />
+    <class path="D:\Program Files (x86)\Haxe\haxe\lib\openfl\5,0,0\externs\extras" />
     <class path="bin\windows\neko\release\haxe" />
   </classpaths>
   <!-- Build options -->
