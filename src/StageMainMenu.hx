@@ -50,10 +50,7 @@ class StageMainMenu extends Sprite
 	
 	static function addBackground()
 	{
-		var backgroundImageData = Assets.getBitmapData('img/Backgrounds/Main_Menu.png');
-		var backgroundImage = new Bitmap(backgroundImageData);
-		
-		myStage.addChild(backgroundImage);
+		ImageManager.addImage('img/Backgrounds/Main_Menu.png');
 	}
 	static function showTitle()
 	{
