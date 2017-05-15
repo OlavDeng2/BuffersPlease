@@ -65,6 +65,27 @@ class UIButton extends Button
 	}
 	
 	
+	//Next Button on the Character Creation Stage
+	public static function nextButton(myStage:Stage, xPos:Int, yPos:Int)
+	{
+		var pressableNextButton:Button = new Button(myStage, "Play");
+		//set position
+		pressableNextButton.y = yPos;
+		pressableNextButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableNextButton);
+		
+		//add event listener
+		pressableNextButton.addEventListener(MouseEvent.CLICK, nextButtonPress);
+	}
+	
+	private static function nextButtonPress(event : MouseEvent)
+	{
+		var pressableNextButton:Button = cast (event.target);
+		SceneManager.switchToStageMainGame();
+	}
+	
 	
 	//Leaderboard Button Function
 	public static function leaderboardButton(myStage:Stage, xPos:Int, yPos:Int)

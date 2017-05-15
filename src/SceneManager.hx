@@ -52,5 +52,9 @@ class SceneManager
 		StageMixing.start();
 	}
 		
-
+	public static function switchToStageMainGame()
+	{
+		StageMainGame.setup(myStage);
+		StageMixing.start();
+	}
 }
