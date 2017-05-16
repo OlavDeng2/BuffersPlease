@@ -50,7 +50,7 @@ class StageMainMenu extends Sprite
 	
 	static function addBackground()
 	{
-		ImageManager.addImage('img/Backgrounds/Main_Menu.png');
+		ImageManager.addImage('img/Backgrounds/Main_Menu.png',0,0);
 	}
 	static function showTitle()
 	{

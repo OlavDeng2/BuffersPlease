@@ -25,7 +25,7 @@ class ImageManager
 	}
 	
 	
-	public static function addImage(imagePath:String/*, xPos:Int, yPos:Int */ ) //Have to implement the changing of coords
+	public static function addImage(imagePath:String, xPos:Int, yPos:Int) //Have to implement the changing of coords
 	{
 		
 		setMyStage();
@@ -34,8 +34,8 @@ class ImageManager
 		var Image = new Bitmap(imageData);
 		
 		//Uncomment when ready, but for now olav go go bed bed.
-		//image.x = xPos;
-		//image.y = yPos;
+		Image.x = xPos;
+		Image.y = yPos;
 		
 		
 		myStage.addChild(Image);
