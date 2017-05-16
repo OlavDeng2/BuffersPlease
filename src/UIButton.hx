@@ -290,22 +290,45 @@ class UIButton extends Button
 	//opening the cupboard
 	public static function cupboardOpenButton(xPos:Int, yPos:Int)
 	{
+		setMyStage();
+		
+		var pressableCupboardOpenButton:Button = new Button(myStage, "Cupboard_Closed");
+		
+		pressableCupboardOpenButton.y = yPos;
+		pressableCupboardOpenButton.x = xPos;
+		
+		myStage.addChild(pressableCupboardOpenButton);
+		
+		pressableCupboardOpenButton.addEventListener(MouseEvent.CLICK, cupboardOpenButtonPress);
 		
 	}
 	
 	private static function cupboardOpenButtonPress(event:MouseEvent)
 	{
+		var pressableCupboardOpenButton:Button = cast(event.target);
+		Sys.println("the cupboard now opens");
 		
 	}
 	
 	//Closing the cupboard
 	public static function cupboardCloseButton(xPos:Int, yPos:Int)
 	{
+		setMyStage();
 		
+		var pressableCupboardClosedButton:Button = new Button(myStage, "Cupboard_Open");
+		
+		pressableCupboardClosedButton.y = yPos;
+		pressableCupboardClosedButton.x = xPos;
+		
+		myStage.addChild(pressableCupboardClosedButton);
+		
+		pressableCupboardClosedButton.addEventListener(MouseEvent.CLICK, cupboardCloseButtonPress);
 	}
 	
 	private static function cupboardCloseButtonPress(event:MouseEvent)
 	{
+		var pressableCupboardClosedButton:Button = cast(event.target);
+		Sys.println("the cupboard now closes");
 		
 	}
 	
