@@ -286,4 +286,27 @@ class UIButton extends Button
 		Sys.println("The chemguide now opens");
 		
 	}
+	
+	//opening the cupboard
+	public static function cupboardOpenButton(xPos:Int, yPos:Int)
+	{
+		
+	}
+	
+	private static function cupboardOpenButtonPress(event:MouseEvent)
+	{
+		
+	}
+	
+	//Closing the cupboard
+	public static function cupboardCloseButton(xPos:Int, yPos:Int)
+	{
+		
+	}
+	
+	private static function cupboardCloseButtonPress(event:MouseEvent)
+	{
+		
+	}
+	
 }
