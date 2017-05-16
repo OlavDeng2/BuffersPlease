@@ -27,8 +27,9 @@ class StageMixing extends Sprite
 	public static function start() 
 	{
 		//UIButton.mainMenuButton(360, 360);
-		UIButton.exitButton(360, 1000);
+		UIButton.nextButton(360, 900);
 		addChems();
+		ImageManager.addImage("img/shackUI/Meter.png", 400, 400);
 		
 	}
 	
