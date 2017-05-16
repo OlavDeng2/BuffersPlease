@@ -36,7 +36,10 @@ class StageMainGame extends Sprite
 		SceneManager.setMyStage(myStage);
 		
 		addShack();
-		UIButton.mixingButton(600, 750);
+		UIButton.bufferReadyButton(600, 750);
+		UIButton.mixingButton(85, 460);
+		UIButton.chemGuideButton(100, 100);
+		UIButton.notepadButton(200, 200);
 		
 	}
 	
@@ -50,8 +53,6 @@ class StageMainGame extends Sprite
 		ImageManager.addImage("img/shackUI/Desk.png",0,0);
 		ImageManager.addImage("img/shackUI/Meter.png", 0, 0);
 		ImageManager.addImage("img/shackUI/Notepad.png",0,0);
-		ImageManager.addImage("img/shackUI/Chemguide.png",0,0);
-		ImageManager.addImage("img/shackUI/Beaker.png",0,0);
 
 
 	}

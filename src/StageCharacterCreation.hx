@@ -36,7 +36,7 @@ class StageCharacterCreation extends Sprite
 	
 	static function addBackground()
 	{
-		ImageManager.addImage('img/Backgrounds/Main_Menu.png', 0, 0);
+		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0);
 	}
 	
 }

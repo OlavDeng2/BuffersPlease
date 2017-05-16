@@ -184,7 +184,7 @@ class UIButton extends Button
 	public static function mixingButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMixingButton:Button = new Button(myStage, "Mixing");
+		var pressableMixingButton:Button = new Button(myStage, "Beaker");
 		
 		pressableMixingButton.y = yPos;
 		pressableMixingButton.x = xPos;
@@ -200,6 +200,26 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMixing();
+	}
+	
+	//Buffer ready button
+	public static function bufferReadyButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableBufferReadyButton:Button = new Button(myStage, "Bell");
+		
+		pressableBufferReadyButton.y = yPos;
+		pressableBufferReadyButton.x = xPos;
+		
+		myStage.addChild(pressableBufferReadyButton);
+		
+		pressableBufferReadyButton.addEventListener(MouseEvent.CLICK, bufferReadyButtonPress);
+	}
+	
+	private static function bufferReadyButtonPress(event:MouseEvent)
+	{
+		var pressableBufferReadyButton:Button = cast(event.target);
+		Sys.println("buffer is finished");
 	}
 	
 	//Main Menu Button
@@ -222,5 +242,48 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMainMenu();
+	}
+	
+	//The notepad
+	public static function notepadButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableNotepadButton:Button = new Button(myStage, "Notepad");
+		
+		pressableNotepadButton.y = yPos;
+		pressableNotepadButton.x = xPos;
+		
+		myStage.addChild(pressableNotepadButton);
+		
+		pressableNotepadButton.addEventListener(MouseEvent.CLICK, notepadButtonPress);
+		
+	}
+	
+	private static function notepadButtonPress(event:MouseEvent)
+	{
+		var pressableNotepadButton:Button = cast(event.target);
+		Sys.println("notepad now opens");
+	}
+	
+	//Chem Guide button
+	public static function chemGuideButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		
+		var pressableChemGuideButton:Button = new Button(myStage, "Chem_Guide");
+		
+		pressableChemGuideButton.y = yPos;
+		pressableChemGuideButton.x = xPos;
+		
+		myStage.addChild(pressableChemGuideButton);
+		
+		pressableChemGuideButton.addEventListener(MouseEvent.CLICK, chemGuideButtonPress);
+	}
+	
+	private static function chemGuideButtonPress(event:MouseEvent)
+	{
+		var pressableChemGuideButton:Button = cast(event.target);
+		Sys.println("The chemguide now opens");
+		
 	}
 }
