@@ -226,7 +226,7 @@ class UIButton extends Button
 	public static function mainMenuButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMainMenuButton:Button = new Button(myStage, "Leaderboard");
+		var pressableMainMenuButton:Button = new Button(myStage, "Menu");
 		
 		pressableMainMenuButton.y = yPos;
 		pressableMainMenuButton.x = xPos;
