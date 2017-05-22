@@ -52,19 +52,22 @@ class StageCharacterCreation extends Sprite
 	
 	static function displayStory()
 	{
-		//var cnx = Sqlite.open("Assets/Databases/Data.db");
-		//var storySet = cnx.request("SELECT Story FROM Story");
+		var cnx = Sqlite.open("DB/Data.db");
+		var storySet = cnx.request("SELECT Story FROM Story");
 		
 		var storyTextField:TextField = new TextField();
 		
-		/*for (row in storySet)
+		for (row in storySet)
 		{
 			storyTextField.text = row.Story;
 
 		}
-		*/
-		storyTextField.text = "Test";
+		
+		cnx.close();
+
+		
 		myStage.addChild(storyTextField);
+		
 
 	}
 	
