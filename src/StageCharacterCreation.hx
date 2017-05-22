@@ -52,20 +52,25 @@ class StageCharacterCreation extends Sprite
 	
 	static function displayStory()
 	{
+		
+		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
+		
+		//get the story from the database at collom story from table story
 		var storySet = cnx.request("SELECT Story FROM Story");
 		
 		var storyTextField:TextField = new TextField();
 		
+		//Go through the rows in story and get the story
 		for (row in storySet)
 		{
 			storyTextField.text = row.Story;
-
 		}
 		
+		// close the database
 		cnx.close();
 
-		
+		// add the text field to the screen
 		myStage.addChild(storyTextField);
 		
 
@@ -76,9 +81,10 @@ class StageCharacterCreation extends Sprite
 	static function inputCharacterName()
 	{
 		
+		//This creates a text field which you can edit, still need to handle the getting of the info from the text field and saving of it.
 		var characterNameField:TextField = new TextField();
-		var font_size = 20;
-		//characterNameField.defaultTextFormat = new TextFormat(Assets.getFont("assets/Fonts/TIMES.TTF").fontName, font_size);
+		var font_size = 40;
+		characterNameField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, font_size);
 		characterNameField.selectable = true;
 		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
@@ -89,8 +95,6 @@ class StageCharacterCreation extends Sprite
 		characterName = characterNameField.text;
 		myStage.addChild( characterNameField );
 		
-				
-		//GameManager.setCurrentName(characterName);
 		Sys.println(characterName);
 
 	}
