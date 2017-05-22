@@ -1,5 +1,7 @@
 package;
 
+import sys.db.Sqlite;
+
 /**
  * ...
  * @author Olav
