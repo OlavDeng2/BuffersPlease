@@ -48,19 +48,22 @@ class StageCharacterCreation extends Sprite
 	//this function handles the creation of the character name
 	static function inputCharacterName()
 	{
+		var characterName:String = "Enter your name";
 		var characterNameField:TextField = new TextField();
 		var font_size = 20;
 		//characterNameField.defaultTextFormat = new TextFormat(Assets.getFont("assets/Fonts/TIMES.TTF").fontName, font_size);
 		characterNameField.border = false;
 		characterNameField.multiline = false;
-		characterNameField.selectable = false;
-		characterNameField.text = "Enter your name";
+		characterNameField.selectable = true;
+		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
 		characterNameField.autoSize = TextFieldAutoSize.LEFT;
-		characterNameField.background = true;
+		characterNameField.background = false;
 		characterNameField.backgroundColor = 0xababab;
 		characterNameField.x = 300;
 		characterNameField.y = 100;
 		myStage.addChild( characterNameField );
+		
+		Sys.println(characterName);
 	}
 }
