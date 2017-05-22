@@ -6,6 +6,10 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
+
+import sys.db.Sqlite;
+
+
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import openfl.text.TextFieldAutoSize;
@@ -18,7 +22,7 @@ import openfl.text.TextFormatAlign;
  */
 class StageCharacterCreation extends Sprite
 {
-
+	public static var characterName:String = "Enter your Name";
 		
 	//Declare some necesarry variables
 	private static var myStage:Stage;
@@ -37,6 +41,7 @@ class StageCharacterCreation extends Sprite
 		
 		UIButton.nextButton(600, 900);
 		inputCharacterName();
+		displayStory();
 	}
 	
 	
@@ -45,25 +50,45 @@ class StageCharacterCreation extends Sprite
 		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0);
 	}
 	
+	static function displayStory()
+	{
+		//var cnx = Sqlite.open("Assets/Databases/Data.db");
+		//var storySet = cnx.request("SELECT Story FROM Story");
+		
+		var storyTextField:TextField = new TextField();
+		
+		/*for (row in storySet)
+		{
+			storyTextField.text = row.Story;
+
+		}
+		*/
+		storyTextField.text = "Test";
+		myStage.addChild(storyTextField);
+
+	}
+	
+	
 	//this function handles the creation of the character name
 	static function inputCharacterName()
 	{
-		var characterName:String = "Enter your name";
+		
 		var characterNameField:TextField = new TextField();
 		var font_size = 20;
 		//characterNameField.defaultTextFormat = new TextFormat(Assets.getFont("assets/Fonts/TIMES.TTF").fontName, font_size);
-		characterNameField.border = false;
-		characterNameField.multiline = false;
 		characterNameField.selectable = true;
 		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
-		characterNameField.autoSize = TextFieldAutoSize.LEFT;
-		characterNameField.background = false;
-		characterNameField.backgroundColor = 0xababab;
 		characterNameField.x = 300;
 		characterNameField.y = 100;
+		characterNameField.restrict = "A-Z 0-0 a-z";
+		characterNameField.maxChars = 16; 
+		characterName = characterNameField.text;
 		myStage.addChild( characterNameField );
 		
+				
+		//GameManager.setCurrentName(characterName);
 		Sys.println(characterName);
+
 	}
 }

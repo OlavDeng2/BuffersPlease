@@ -2,6 +2,10 @@ package;
 
 import sys.db.Sqlite;
 
+
+import openfl.text.TextField;
+
+/**
 /**
  * ...
  * @author Olav
@@ -11,8 +15,10 @@ class GameManager
 	//Gonna have to do some shit in here for the leaderboards and storing of variables, but im a lazy fuck so that will come at a later date.
 	
 	//variables which will be needed later
-	var currentScore:Int;
-	var currentName:String;
+	static var currentScore:Int;
+	static var currentName:String;
+	static var characterTextInput:TextField;
+	
 	
 	//Function to get and set current score
 	public static function getCurrentScore()
@@ -35,4 +41,5 @@ class GameManager
 	{
 		currentName = name;
 	}
+	
 }
