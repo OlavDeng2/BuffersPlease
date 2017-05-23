@@ -57,7 +57,7 @@ class StageCharacterCreation extends Sprite
 		var fontSize = 40;
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		storyTextField.selectable = false;
-		storyTextField.x = 300;
+		storyTextField.x = 100;
 		storyTextField.y = 100;
 		
 		
