@@ -56,6 +56,8 @@ class StageCharacterCreation extends Sprite
 		var storyTextField:TextField = new TextField();
 		var fontSize = 40;
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		//storyTextField.textWidth = 500.0;
+		storyTextField.autoSize = TextFieldAutoSize.LEFT;
 		storyTextField.selectable = false;
 		storyTextField.x = 100;
 		storyTextField.y = 100;
@@ -96,11 +98,14 @@ class StageCharacterCreation extends Sprite
 		characterNameField.selectable = true;
 		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
-		characterNameField.x = 300;
-		characterNameField.y = 100;
+		characterNameField.x = 200;
+		characterNameField.y = 800;
 		characterNameField.restrict = "A-Z 0-0 a-z";
 		characterNameField.maxChars = 16; 
 		characterName = characterNameField.text;
+		characterNameField.autoSize = TextFieldAutoSize.LEFT;
+		
+		
 		myStage.addChild( characterNameField );
 		
 		Sys.println(characterName);
