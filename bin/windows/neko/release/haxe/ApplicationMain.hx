@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "309",
+			build: "312",
 			company: "Olav",
 			file: "BuffersPlease",
 			fps: 60,
@@ -36,7 +36,6 @@ import haxe.macro.Expr;
 				
 				{
 					allowHighDPI: false,
-					alwaysOnTop: false,
 					antialiasing: 0,
 					background: 0,
 					borderless: false,
@@ -139,9 +138,7 @@ import haxe.macro.Expr;
 			
 		} catch (e:Dynamic) {
 			
-			#if !display
 			stage.__handleError (e);
-			#end
 			
 		}
 		

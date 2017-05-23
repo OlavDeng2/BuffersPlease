@@ -59,6 +59,7 @@ class StageCharacterCreation extends Sprite
 		storyTextField.selectable = false;
 		storyTextField.x = 100;
 		storyTextField.y = 100;
+		storyTextField.multiline = true;
 		
 		
 		//Open the database
