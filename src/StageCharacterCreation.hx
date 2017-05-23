@@ -51,6 +51,7 @@ class StageCharacterCreation extends Sprite
 		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0);
 	}
 	
+	//Write the code for the next story bit is required, as it wont all fit on one screen
 	static function displayStory()
 	{
 		
@@ -64,7 +65,6 @@ class StageCharacterCreation extends Sprite
 		storyTextField.y = 50;
 		storyTextField.multiline = true;
 		
-		//Write code for next story bit
 		
 		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
