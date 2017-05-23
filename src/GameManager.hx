@@ -43,8 +43,9 @@ class GameManager
 	}
 	
 	
-	public static function getLeaderboard()
+	public static function getLeaderboard():String
 	{
+		var userName:String;
 		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
 		
@@ -55,10 +56,13 @@ class GameManager
 		//Go through the rows in story and get the story
 		for (row in scoreSet)
 		{
-			placeHolderVariable = row.name;
+			userName = row.name;
 		}
 		
 		// close the database
 		cnx.close();
+		
+		Sys.println(userName);
+		return userName;
 	}
 }
