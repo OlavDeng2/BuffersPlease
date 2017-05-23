@@ -15,19 +15,23 @@ class SoundManager
 {
 	//Create the sound channel for the ingame music and sound
 	static var musicChannel:SoundChannel;
+	static var playedMusic:Sound;
+	static var sfxSoundPlay:Sound;
 	
-	//Example of music
-	public static function palyMusic(musicName:String)
+	//plays music on function call + musicName 
+	public static function playMusic(musicName:String)
 	{
-		var playedMusic:Sound = Assets.getMusic("sfx/${musicName}.ogg");
-		playedMusic.play(0.0, 1000);
+		if (musicChannel != null)
+			musicChannel.stop();
+		
+		playedMusic = Assets.getMusic("music/" + musicName + ".ogg");
+		musicChannel = playedMusic.play(0.0, 1000);
 	}
 	
-	//Example of Sound
-	
-		public static function playSFX(sfxName:String )
+	//plays sound on function call + sfxName 
+	public static function playSFX(sfxName:String )
 	{
-		var sfxSoundPlay = Assets.getSound("sfx/${sfxName}.ogg");
+		sfxSoundPlay = Assets.getSound("sfx/" + sfxName + ".ogg");
 		sfxSoundPlay.play();
 	}
 	
