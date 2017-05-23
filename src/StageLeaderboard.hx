@@ -48,6 +48,12 @@ class StageLeaderboard extends Sprite
 		var scoreTextField:TextField = new TextField();
 		
 		scoreTextField.text = playerName;
+		var fontSize = 40;
+		scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		scoreTextField.autoSize = TextFieldAutoSize.LEFT;
+		scoreTextField.selectable = false;
+		scoreTextField.x = 75;
+		scoreTextField.y = 50;
 		// add the text field to the screen
 		myStage.addChild(scoreTextField);
 		
