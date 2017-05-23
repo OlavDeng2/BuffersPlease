@@ -23,7 +23,7 @@
 	<assets path="assets/Databases" rename="DB" />
 	<assets path="assets/Fonts" rename="Fonts" />
 	<assets path="assets/music" rename="Music" />
-	<assets path="assets/sfx" rename="SFX" />
+	<assets path="assets/sfx" rename="sfx" />
 
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

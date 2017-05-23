@@ -17,18 +17,18 @@ class SoundManager
 	static var musicChannel:SoundChannel;
 	
 	//Example of music
-	public static function startMusic()
+	public static function palyMusic(musicName:String)
 	{
-		var epicMusic:Sound = Assets.getMusic("sfx/backgroundsound.ogg");
-		epicMusic.play(0.0, 1000);
+		var playedMusic:Sound = Assets.getMusic("sfx/${musicName}.ogg");
+		playedMusic.play(0.0, 1000);
 	}
 	
 	//Example of Sound
 	
-		public static function playDestroyAsteroid()
+		public static function playSFX(sfxName:String )
 	{
-		var AsteroidDestructionSound = Assets.getSound("sfx/small_blast.ogg");
-		AsteroidDestructionSound.play();
+		var sfxSoundPlay = Assets.getSound("sfx/${sfxName}.ogg");
+		sfxSoundPlay.play();
 	}
 	
 	//Do not the above are only examples and should be used as such
