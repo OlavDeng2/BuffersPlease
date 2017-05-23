@@ -42,6 +42,7 @@ class StageCharacterCreation extends Sprite
 		UIButton.nextButton(600, 900);
 		inputCharacterName();
 		displayStory();
+		
 	}
 	
 	
@@ -59,10 +60,11 @@ class StageCharacterCreation extends Sprite
 		//storyTextField.textWidth = 500.0;
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
 		storyTextField.selectable = false;
-		storyTextField.x = 100;
-		storyTextField.y = 100;
+		storyTextField.x = 75;
+		storyTextField.y = 50;
 		storyTextField.multiline = true;
 		
+		//Write code for next story bit
 		
 		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
@@ -93,7 +95,7 @@ class StageCharacterCreation extends Sprite
 		
 		//This creates a text field which you can edit, still need to handle the getting of the info from the text field and saving of it.
 		var characterNameField:TextField = new TextField();
-		var fontSize = 40;
+		var fontSize = 30;
 		characterNameField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		characterNameField.selectable = true;
 		characterNameField.text = characterName;
