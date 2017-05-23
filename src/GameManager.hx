@@ -42,4 +42,23 @@ class GameManager
 		currentName = name;
 	}
 	
+	
+	public static function getLeaderboard()
+	{
+		//Open the database
+		var cnx = Sqlite.open("DB/Data.db");
+		
+		//get the story from the database at collom story from table story
+		var scoreSet = cnx.request("SELECT name FROM Highscores");
+		
+		
+		//Go through the rows in story and get the story
+		for (row in scoreSet)
+		{
+			placeHolderVariable = row.name;
+		}
+		
+		// close the database
+		cnx.close();
+	}
 }

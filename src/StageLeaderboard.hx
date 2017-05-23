@@ -39,23 +39,23 @@ class StageLeaderboard extends Sprite
 	{
 		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0);
 		UIButton.mainMenuButton(360, 800);
-
+		getLeaderboard();
 	}
 	
-	//This function does not currently work, will also be moved to game manager soon(TM)
+	//This function right now only displays the last result, gonna have to change that
 	static function getLeaderboard()
 	{
 		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
-		var scoreSet = cnx.request("SELECT Name FROM Highscores");
+		var scoreSet = cnx.request("SELECT name FROM Highscores");
 		
 		
 		//Go through the rows in story and get the story
 		for (row in scoreSet)
 		{
-			scoreTextField.text = row.Name;
+			scoreTextField.text = row.name;
 		}
 		
 		// close the database
