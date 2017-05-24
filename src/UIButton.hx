@@ -51,6 +51,9 @@ class UIButton extends Button
 		var pressableExitButton:Button = cast (event.target);
 		//Exit the game
 		System.exit(0);
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	
@@ -79,6 +82,9 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageCharacterCreation();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	
@@ -104,6 +110,9 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMainGame();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	
@@ -130,6 +139,9 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageLeaderboard();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	//Music Off button
@@ -153,6 +165,9 @@ class UIButton extends Button
 		var pressableMusicOffButton:Button = cast(event.target);
 		
 		Sys.println("Music is now turned off");
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	
@@ -178,6 +193,9 @@ class UIButton extends Button
 		var pressableMusicOnButton:Button = cast(event.target);
 		
 		Sys.println("Music is now turned on");
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	//Mixing Minigame Button(bell)
@@ -200,6 +218,9 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMixing();
+		
+		//Play sound effect
+		SoundManager.playSFX("Flasks");
 	}
 	
 	//Buffer ready button
@@ -220,6 +241,9 @@ class UIButton extends Button
 	{
 		var pressableBufferReadyButton:Button = cast(event.target);
 		Sys.println("buffer is finished");
+		
+		//Play sound effect
+		SoundManager.playSFX("Bell");
 	}
 	
 	//Main Menu Button
@@ -242,6 +266,9 @@ class UIButton extends Button
 		//removes all children so that nothing is remaining of the previous stage.
 		myStage.removeChildren();
 		SceneManager.switchToStageMainMenu();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 	
 	//The notepad
@@ -263,6 +290,9 @@ class UIButton extends Button
 	{
 		var pressableNotepadButton:Button = cast(event.target);
 		Sys.println("notepad now opens");
+		
+		//Play sound effect
+		SoundManager.playSFX("Book");
 	}
 	
 	//Chem Guide button
@@ -285,6 +315,8 @@ class UIButton extends Button
 		var pressableChemGuideButton:Button = cast(event.target);
 		Sys.println("The chemguide now opens");
 		
+		//Play sound effect
+		SoundManager.playSFX("Book");
 	}
 	
 	//opening the cupboard
@@ -308,6 +340,8 @@ class UIButton extends Button
 		var pressableCupboardOpenButton:Button = cast(event.target);
 		Sys.println("the cupboard now opens");
 		
+		//Play sound effect
+		SoundManager.playSFX("Cupboard");
 	}
 	
 	//Closing the cupboard
@@ -330,6 +364,34 @@ class UIButton extends Button
 		var pressableCupboardClosedButton:Button = cast(event.target);
 		Sys.println("the cupboard now closes");
 		
+		//Play sound effect
+		SoundManager.playSFX("Cupboard");
 	}
 	
+	/*public static function musicOffButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		
+		var pressableMusicOffButton:Button = new Button(myStage, "Music Off");
+		//set position
+		pressableMusicOffButton.y = yPos;
+		pressableMusicOffButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableMusicOffButton);
+		
+		//add event listener
+		pressableMusicOffButton.addEventListener(MouseEvent.CLICK, musicOffButtonPress);
+	}
+	
+	private static function musicOffButtonPress(event:MouseEvent)
+	{
+		var pressableCupboardClosedButton:Button = cast(event.target);
+		Sys.println("the music now turns off ");
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
+	
+		//SoundManager........
+	}*/
 }
