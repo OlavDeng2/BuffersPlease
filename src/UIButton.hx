@@ -34,7 +34,7 @@ class UIButton extends Button
 		setMyStage();
 		
 		
-		var pressableExitButton:Button = new Button(myStage, "Quit");
+		var pressableExitButton:Button = new Button("Quit");
 		//set position
 		pressableExitButton.y = yPos;
 		pressableExitButton.x = xPos;
@@ -66,7 +66,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 
-		var pressableStartButton:Button = new Button(myStage, "Play");
+		var pressableStartButton:Button = new Button("Play");
 		//set position
 		pressableStartButton.y = yPos;
 		pressableStartButton.x = xPos;
@@ -95,7 +95,7 @@ class UIButton extends Button
 	public static function nextButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableNextButton:Button = new Button(myStage, "Play");
+		var pressableNextButton:Button = new Button( "Play");
 		//set position
 		pressableNextButton.y = yPos;
 		pressableNextButton.x = xPos;
@@ -124,7 +124,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableLeaderboardButton:Button = new Button(myStage, "Leaderboard");
+		var pressableLeaderboardButton:Button = new Button("Leaderboard");
 		//set position
 		pressableLeaderboardButton.y = yPos;
 		pressableLeaderboardButton.x = xPos;
@@ -151,7 +151,7 @@ class UIButton extends Button
 	public static function musicOffButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMusicOffButton:Button = new Button(myStage, "Music Off");
+		var pressableMusicOffButton:Button = new Button("Music Off");
 		//set position
 		pressableMusicOffButton.y = yPos;
 		pressableMusicOffButton.x = xPos;
@@ -179,7 +179,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableMusicOnButton:Button = new Button(myStage, "Music On");
+		var pressableMusicOnButton:Button = new Button("Music On");
 		//set position
 		pressableMusicOnButton.y = yPos;
 		pressableMusicOnButton.x = xPos;
@@ -205,7 +205,7 @@ class UIButton extends Button
 	public static function mixingButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMixingButton:Button = new Button(myStage, "Beaker");
+		var pressableMixingButton:Button = new Button("Beaker");
 		
 		pressableMixingButton.y = yPos;
 		pressableMixingButton.x = xPos;
@@ -230,7 +230,7 @@ class UIButton extends Button
 	public static function bufferReadyButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableBufferReadyButton:Button = new Button(myStage, "Bell");
+		var pressableBufferReadyButton:Button = new Button("Bell");
 		
 		pressableBufferReadyButton.y = yPos;
 		pressableBufferReadyButton.x = xPos;
@@ -253,7 +253,7 @@ class UIButton extends Button
 	public static function mainMenuButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMainMenuButton:Button = new Button(myStage, "Menu");
+		var pressableMainMenuButton:Button = new Button("Menu");
 		
 		pressableMainMenuButton.y = yPos;
 		pressableMainMenuButton.x = xPos;
@@ -278,7 +278,7 @@ class UIButton extends Button
 	public static function notepadButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableNotepadButton:Button = new Button(myStage, "Notepad");
+		var pressableNotepadButton:Button = new Button("Notepad");
 		
 		pressableNotepadButton.y = yPos;
 		pressableNotepadButton.x = xPos;
@@ -303,7 +303,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableChemGuideButton:Button = new Button(myStage, "Chem_Guide");
+		var pressableChemGuideButton:Button = new Button(m"Chem_Guide");
 		
 		pressableChemGuideButton.y = yPos;
 		pressableChemGuideButton.x = xPos;
@@ -327,7 +327,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableCupboardOpenButton:Button = new Button(myStage, "Cupboard_Closed");
+		var pressableCupboardOpenButton:Button = new Button("Cupboard_Closed");
 		
 		pressableCupboardOpenButton.y = yPos;
 		pressableCupboardOpenButton.x = xPos;
@@ -352,7 +352,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableCupboardClosedButton:Button = new Button(myStage, "Cupboard_Open");
+		var pressableCupboardClosedButton:Button = new Button("Cupboard_Open");
 		
 		pressableCupboardClosedButton.y = yPos;
 		pressableCupboardClosedButton.x = xPos;
@@ -375,7 +375,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableMusicOffButton:Button = new Button(myStage, "Music Off");
+		var pressableMusicOffButton:Button = new Button("Music Off");
 		//set position
 		pressableMusicOffButton.y = yPos;
 		pressableMusicOffButton.x = xPos;
