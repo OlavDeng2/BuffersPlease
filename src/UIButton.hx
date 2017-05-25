@@ -49,11 +49,14 @@ class UIButton extends Button
 	private static function exitButtonPress(event : MouseEvent)
 	{
 		var pressableExitButton:Button = cast (event.target);
-		//Exit the game
-		System.exit(0);
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
+		
+		//Exit the game
+		System.exit(0);
+		
+
 	}
 	
 	
