@@ -10,6 +10,12 @@ import openfl.text.TextField;
  * ...
  * @author Olav
  */
+
+ typedef HighScore = 	 {
+	 var name:String;
+	 var points:Int;
+ }
+ 
 class GameManager 
 {
 	//Gonna have to do some shit in here for the leaderboards and storing of variables, but im a lazy fuck so that will come at a later date.
@@ -42,27 +48,44 @@ class GameManager
 		currentName = name;
 	}
 	
-	
-	public static function getLeaderboard():String
+	public static function writeScoreToDB()
 	{
-		var userName:String;
-		//Open the database
+		var cnx = Sqlite.open("DB/Data.db");
+		cnx.request(' INSERT INTO Highscores (name, Score) VALUES("' + currentName + '", ' + currentScore + ')');
+		
+		cnx.close();
+	}
+	
+	public static function getLeaderboard()
+	{
+		//Figure out typedef later
+		var highScore:HighScore;
+		var highScoresArray:Array<HighScore> = [];
+		
+		//Open the database*/
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
-		var scoreSet = cnx.request("SELECT name FROM Highscores");
+		var scoreSet = cnx.request("SELECT * FROM Highscores ORDER BY Score DESC LIMIT 5");
 		
 		
 		//Go through the rows in story and get the story
 		for (row in scoreSet)
 		{
-			userName = row.name;
+
+			highScore = {name: row.Name, points: row.Score};
+			highScoresArray.push(highScore);
+			Sys.println(highScore);
+			
 		}
 		
 		// close the database
 		cnx.close();
 		
-		Sys.println(userName);
-		return userName;
+	}
+	
+	public static function getPuzzle(puzzleNumber:String)
+	{
+		//Do something
 	}
 }

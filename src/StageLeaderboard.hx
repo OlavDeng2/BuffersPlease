@@ -36,14 +36,15 @@ class StageLeaderboard extends Sprite
 	{
 		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0);
 		UIButton.mainMenuButton(360, 800);
-		displayLeaderboard();
+		//displayLeaderboard();
+		GameManager.getLeaderboard();
 	}
 	
 	//This function right now only displays the last result, gonna have to change that
-	static function displayLeaderboard()
+	/*static function displayLeaderboard()
 	{
 		
-		var playerName: String = GameManager.getLeaderboard();
+		//var playerName: String = GameManager.getLeaderboard();
 		
 		var scoreTextField:TextField = new TextField();
 		
@@ -57,6 +58,6 @@ class StageLeaderboard extends Sprite
 		// add the text field to the screen
 		myStage.addChild(scoreTextField);
 		
-	}
+	}*/
 	
 }
