@@ -303,7 +303,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableChemGuideButton:Button = new Button(m"Chem_Guide");
+		var pressableChemGuideButton:Button = new Button("Chem_Guide");
 		
 		pressableChemGuideButton.y = yPos;
 		pressableChemGuideButton.x = xPos;
@@ -371,6 +371,10 @@ class UIButton extends Button
 		SoundManager.playSFX("Cupboard");
 	}
 	
+	
+	
+	
+	// Duplicate function?
 	/*public static function musicOffButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
@@ -396,5 +400,7 @@ class UIButton extends Button
 		SoundManager.playSFX("MenuSelect");
 	
 		//SoundManager........
-	}*/
+	}
+	
+	*/
 }
