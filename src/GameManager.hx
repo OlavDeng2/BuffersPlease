@@ -75,13 +75,13 @@ class GameManager
 
 			highScore = {name: row.Name, points: row.Score};
 			highScoresArray.push(highScore);
-			Sys.println(highScore);
 			
 		}
 		
 		// close the database
 		cnx.close();
 		
+		return highScoresArray;
 	}
 	
 	public static function getPuzzle(puzzleNumber:String)

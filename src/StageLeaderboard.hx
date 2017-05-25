@@ -15,6 +15,7 @@ import openfl.text.TextFieldAutoSize;
 import openfl.text.Font;
 import openfl.text.TextFormat;
 import openfl.text.TextFormatAlign;
+import GameManager;
 /**
  * ...
  * @author Olav
@@ -41,12 +42,12 @@ class StageLeaderboard extends Sprite
 	}
 	
 	//This function right now only displays the last result, gonna have to change that
-	/*static function displayLeaderboard()
+	static function displayLeaderboard()
 	{
+		// Figure out how to return an array, if possible, later.
+		var leaderBoard:Array<HighScore> = GameManager.getLeaderboard();
 		
-		//var playerName: String = GameManager.getLeaderboard();
-		
-		var scoreTextField:TextField = new TextField();
+		/*var scoreTextField:TextField = new TextField();
 		
 		scoreTextField.text = playerName;
 		var fontSize = 40;
@@ -56,8 +57,9 @@ class StageLeaderboard extends Sprite
 		scoreTextField.x = 75;
 		scoreTextField.y = 50;
 		// add the text field to the screen
-		myStage.addChild(scoreTextField);
+		myStage.addChild(scoreTextField);*/
+		Sys.println(leaderBoard);
 		
-	}*/
+	}
 	
 }
