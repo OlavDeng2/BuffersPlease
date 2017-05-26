@@ -46,6 +46,7 @@ class GameManager
 	public static function setCurrentName(name:String)
 	{
 		currentName = name;
+		Sys.println(currentName);
 	}
 	
 	public static function writeScoreToDB()

@@ -9,6 +9,7 @@ import openfl.display.Stage;
 
 import sys.db.Sqlite;
 
+import openfl.events.MouseEvent;
 
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
@@ -23,6 +24,8 @@ import openfl.text.TextFormatAlign;
 class StageCharacterCreation extends Sprite
 {
 	public static var characterName:String = "Enter your Name";
+	public static var characterNameField:TextField = new TextField();
+
 		
 	//Declare some necesarry variables
 	private static var myStage:Stage;
@@ -41,7 +44,7 @@ class StageCharacterCreation extends Sprite
 		
 		UIButton.nextButton(600, 900);
 		inputCharacterName();
-		displayStory();
+		acceptCharacterName(50, 50);
 		
 	}
 	
@@ -94,7 +97,6 @@ class StageCharacterCreation extends Sprite
 	{
 		
 		//This creates a text field which you can edit, still need to handle the getting of the info from the text field and saving of it.
-		var characterNameField:TextField = new TextField();
 		var fontSize = 30;
 		characterNameField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		characterNameField.selectable = true;
@@ -112,5 +114,30 @@ class StageCharacterCreation extends Sprite
 		
 		Sys.println(characterName);
 
+	}
+	
+	//store char name and start displaying story
+	static function acceptCharacterName(xPos:Int, yPos:Int)
+	{
+
+		var acceptCharacterNameButton:Button = new Button("Play");
+		
+		acceptCharacterNameButton.y = yPos;
+		acceptCharacterNameButton.x = xPos;
+		
+		myStage.addChild(acceptCharacterNameButton);
+		
+		acceptCharacterNameButton.addEventListener(MouseEvent.CLICK, acceptCharacterNameButtonPress);
+	}
+	
+	static function acceptCharacterNameButtonPress(event:MouseEvent)
+	{
+		var acceptCharacterNameButton:Button = cast(event.target);
+		Sys.println("Char name is now saved");
+		
+		GameManager.setCurrentName(characterNameField.text);
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 }
