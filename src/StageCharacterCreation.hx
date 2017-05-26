@@ -23,8 +23,10 @@ import openfl.text.TextFormatAlign;
  */
 class StageCharacterCreation extends Sprite
 {
-	public static var characterName:String = "Enter your Name";
+	public static var characterName:String = " ";
 	public static var characterNameField:TextField = new TextField();
+	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
+
 	public static var storyLocation:Int;
 	public static var storyLength: Int = 3;
 	public static var storyTextField:TextField = new TextField();
@@ -96,6 +98,12 @@ class StageCharacterCreation extends Sprite
 	//this function handles the creation of the character name
 	static function inputCharacterName()
 	{
+		var fontSize = 30;
+		pleaseEnterCharacterNameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		pleaseEnterCharacterNameTextField.text = "Please Enter your Character Name";
+		pleaseEnterCharacterNameTextField.x = 150;
+		pleaseEnterCharacterNameTextField.y = 100;
+		pleaseEnterCharacterNameTextField.autoSize = TextFieldAutoSize.LEFT;
 		
 		//This creates a text field which you can edit, still need to handle the getting of the info from the text field and saving of it.
 		var fontSize = 30;
@@ -109,8 +117,11 @@ class StageCharacterCreation extends Sprite
 		characterNameField.maxChars = 16; 
 		characterName = characterNameField.text;
 		characterNameField.autoSize = TextFieldAutoSize.LEFT;
+		characterNameField.background = true;
+		characterNameField.backgroundColor = 0xababab;
+		characterNameField.border = true;
 		
-		
+		myStage.addChild(pleaseEnterCharacterNameTextField);
 		myStage.addChild( characterNameField );
 		
 	}
@@ -146,6 +157,7 @@ class StageCharacterCreation extends Sprite
 		
 		myStage.removeChild(acceptCharacterNameButton);
 		myStage.removeChild(characterNameField);
+		myStage.removeChild(pleaseEnterCharacterNameTextField);
 	}
 	
 	
@@ -174,7 +186,7 @@ class StageCharacterCreation extends Sprite
 		displayStory(storyLocation);
 		if (storyLocation == storyLength)
 		{
-			Sys.println("do something");
+			UIButton.nextButton(600, 900);
 		}
 		
 		else
