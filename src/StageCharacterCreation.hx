@@ -28,11 +28,12 @@ class StageCharacterCreation extends Sprite
 	//Declare some necesarry variables
 	private static var myStage:Stage;
 	
+	//create text fields
 	public static var characterNameField:TextField = new TextField();
 	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
 	public static var storyTextField:TextField = new TextField();
 
-
+	//create some other variables that are needed
 	public static var storyLocation:Int;
 	public static var storyLength: Int = 3;
 	public static var characterName:String = " ";
@@ -46,7 +47,7 @@ class StageCharacterCreation extends Sprite
 
 	public static function start() 
 	{
-		
+		//rather self descriptive
 		addBackground();
 		SceneManager.setMyStage(myStage);
 		inputCharacterName();
@@ -100,6 +101,7 @@ class StageCharacterCreation extends Sprite
 	//this function handles the creation of the character name
 	static function inputCharacterName()
 	{
+		//This is the text field which is not selectable nor editable which just displays the text asking to enter your character name
 		var fontSize = 30;
 		pleaseEnterCharacterNameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		pleaseEnterCharacterNameTextField.text = "Please Enter your Character Name";
@@ -144,6 +146,7 @@ class StageCharacterCreation extends Sprite
 		acceptCharacterNameButton.addEventListener(MouseEvent.CLICK, acceptCharacterNameButtonPress);
 	}
 	
+	//actual functionality of when the acceptCharacterName button is pressed
 	static function acceptCharacterNameButtonPress(event:MouseEvent)
 	{
 		var acceptCharacterNameButton:Button = cast(event.target);
@@ -151,6 +154,7 @@ class StageCharacterCreation extends Sprite
 		
 		GameManager.setCurrentName(characterNameField.text);
 		
+		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
 		storyLocation = 1;
 		
 		displayStory(storyLocation);
@@ -159,13 +163,14 @@ class StageCharacterCreation extends Sprite
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
 		
+		//remove things which are now unecesarry
 		myStage.removeChild(acceptCharacterNameButton);
 		myStage.removeChild(characterNameField);
 		myStage.removeChild(pleaseEnterCharacterNameTextField);
 	}
 	
 	
-	
+	//next story button
 	static function nextStory(xPos:Int, yPos:Int)
 	{
 		var nextStoryButton:Button = new Button("Play");
@@ -178,6 +183,7 @@ class StageCharacterCreation extends Sprite
 		nextStoryButton.addEventListener(MouseEvent.CLICK, nextStoryPress);
 	}
 	
+	//functionality of the above button	
 	static function nextStoryPress(event:MouseEvent)
 	{
 		myStage.removeChild(storyTextField);
