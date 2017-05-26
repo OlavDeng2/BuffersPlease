@@ -88,6 +88,15 @@ class GameManager
 	
 	public static function getPuzzle(puzzleNumber:String)
 	{
+		/* Notes on what the different values represent in terms of atoms, It basically follows the periodic table
+		 *  
+		 * 0 = nothing
+		 * 1 = hydrogen
+		 * 6 = Carbon
+		 * 8 = Oxygen
+		 * 11 = Sodium
+		 * 
+		 *
 		//Do something
 	}
 }
