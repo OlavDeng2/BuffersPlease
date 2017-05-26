@@ -23,19 +23,21 @@ import openfl.text.TextFormatAlign;
  */
 class StageCharacterCreation extends Sprite
 {
-	public static var characterName:String = " ";
-	public static var characterNameField:TextField = new TextField();
-	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
-
-	public static var storyLocation:Int;
-	public static var storyLength: Int = 3;
-	public static var storyTextField:TextField = new TextField();
-
 
 		
 	//Declare some necesarry variables
 	private static var myStage:Stage;
 	
+	public static var characterNameField:TextField = new TextField();
+	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
+	public static var storyTextField:TextField = new TextField();
+
+
+	public static var storyLocation:Int;
+	public static var storyLength: Int = 3;
+	public static var characterName:String = " ";
+
+
 	//do the necesarry setups
 	public static function setup(stageref:Stage)
 	{
