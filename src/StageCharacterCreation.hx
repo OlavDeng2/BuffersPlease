@@ -111,12 +111,14 @@ class StageCharacterCreation extends Sprite
 		characterNameField.selectable = true;
 		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
-		characterNameField.x = 200;
-		characterNameField.y = 200;
+		characterNameField.x = 210;
+		characterNameField.width = 270;
+		characterNameField.height = 50;
+		characterNameField.y = 150;
 		characterNameField.restrict = "A-Z 0-0 a-z";
 		characterNameField.maxChars = 16; 
 		characterName = characterNameField.text;
-		characterNameField.autoSize = TextFieldAutoSize.LEFT;
+		//characterNameField.autoSize = TextFieldAutoSize.LEFT;
 		characterNameField.background = true;
 		characterNameField.backgroundColor = 0xababab;
 		characterNameField.border = true;
