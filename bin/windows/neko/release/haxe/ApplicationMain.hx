@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "402",
+			build: "406",
 			company: "Olav",
 			file: "BuffersPlease",
 			fps: 60,

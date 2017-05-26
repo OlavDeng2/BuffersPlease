@@ -81,6 +81,7 @@ class GameManager
 		// close the database
 		cnx.close();
 		
+		Sys.println(highScoresArray);
 		return highScoresArray;
 	}
 	
