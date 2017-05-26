@@ -25,6 +25,10 @@ class StageCharacterCreation extends Sprite
 {
 	public static var characterName:String = "Enter your Name";
 	public static var characterNameField:TextField = new TextField();
+	public static var storyLocation:Int;
+	public static var storyLength: Int = 3;
+	public static var storyTextField:TextField = new TextField();
+
 
 		
 	//Declare some necesarry variables
@@ -56,7 +60,6 @@ class StageCharacterCreation extends Sprite
 	static function displayStory(storyId:Int )
 	{
 		
-		var storyTextField:TextField = new TextField();
 		var fontSize = 40;
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
@@ -101,7 +104,7 @@ class StageCharacterCreation extends Sprite
 		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
 		characterNameField.x = 200;
-		characterNameField.y = 800;
+		characterNameField.y = 200;
 		characterNameField.restrict = "A-Z 0-0 a-z";
 		characterNameField.maxChars = 16; 
 		characterName = characterNameField.text;
@@ -133,12 +136,53 @@ class StageCharacterCreation extends Sprite
 		
 		GameManager.setCurrentName(characterNameField.text);
 		
-		displayStory(3);
+		storyLocation = 1;
+		
+		displayStory(storyLocation);
+		nextStory(600, 900);
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
 		
 		myStage.removeChild(acceptCharacterNameButton);
 		myStage.removeChild(characterNameField);
+	}
+	
+	
+	
+	static function nextStory(xPos:Int, yPos:Int)
+	{
+		var nextStoryButton:Button = new Button("Play");
+		
+		nextStoryButton.y = yPos;
+		nextStoryButton.x = xPos;
+		
+		myStage.addChild(nextStoryButton);
+		
+		nextStoryButton.addEventListener(MouseEvent.CLICK, nextStoryPress);
+	}
+	
+	static function nextStoryPress(event:MouseEvent)
+	{
+		myStage.removeChild(storyTextField);
+
+		var nextStoryButton:Button = cast(event.target);
+		Sys.println("story next");
+		
+		storyLocation += 1;
+		
+		displayStory(storyLocation);
+		if (storyLocation == storyLength)
+		{
+			Sys.println("do something");
+		}
+		
+		else
+		{
+			nextStory(600, 900);
+
+		}
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
 	}
 }
