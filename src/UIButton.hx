@@ -83,7 +83,6 @@ class UIButton extends Button
 		
 		var pressableStartButton:Button = cast (event.target);
 		//removes all children so that nothing is remaining of the previous stage.
-		myStage.removeChildren();
 		SceneManager.switchToStageCharacterCreation();
 		
 		//Play sound effect
@@ -111,7 +110,6 @@ class UIButton extends Button
 	{
 		var pressableNextButton:Button = cast (event.target);
 		//removes all children so that nothing is remaining of the previous stage.
-		myStage.removeChildren();
 		SceneManager.switchToStageMainGame();
 		
 		//Play sound effect
@@ -140,7 +138,6 @@ class UIButton extends Button
 	{
 		var pressableLeaderboardButton:Button = cast(event.target);
 		//removes all children so that nothing is remaining of the previous stage.
-		myStage.removeChildren();
 		SceneManager.switchToStageLeaderboard();
 		
 		//Play sound effect
@@ -219,7 +216,6 @@ class UIButton extends Button
 	{
 		var pressablemixingButton:Button = cast(event.target);
 		//removes all children so that nothing is remaining of the previous stage.
-		myStage.removeChildren();
 		SceneManager.switchToStageMixing();
 		
 		//Play sound effect
@@ -267,7 +263,6 @@ class UIButton extends Button
 	{
 		var pressableMainMenuButton:Button = cast(event.target);
 		//removes all children so that nothing is remaining of the previous stage.
-		myStage.removeChildren();
 		SceneManager.switchToStageMainMenu();
 		
 		//Play sound effect
