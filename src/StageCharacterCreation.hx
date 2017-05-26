@@ -59,7 +59,6 @@ class StageCharacterCreation extends Sprite
 		var storyTextField:TextField = new TextField();
 		var fontSize = 40;
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
-		//storyTextField.textWidth = 500.0;
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
 		storyTextField.selectable = false;
 		storyTextField.x = 75;
@@ -71,13 +70,13 @@ class StageCharacterCreation extends Sprite
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
-		var storySet = cnx.request("SELECT StoryText FROM IntroStory WHERE rowid = 1" /*+ storyId*/);
+		var storySet = cnx.request("SELECT StoryText FROM IntroStory WHERE rowid = " + storyId);
 		
 		
 		//Go through the rows in story and get the story
 		for (row in storySet)
 		{
-			storyTextField.text = row.Story;
+			storyTextField.text = row.StoryText;
 		}
 		
 		// close the database
@@ -134,7 +133,7 @@ class StageCharacterCreation extends Sprite
 		
 		GameManager.setCurrentName(characterNameField.text);
 		
-		//displayStory(1);
+		displayStory(3);
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
