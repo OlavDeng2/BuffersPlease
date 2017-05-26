@@ -41,10 +41,8 @@ class StageCharacterCreation extends Sprite
 		
 		addBackground();
 		SceneManager.setMyStage(myStage);
-		
-		UIButton.nextButton(600, 900);
 		inputCharacterName();
-		acceptCharacterName(50, 50);
+		acceptCharacterName(600, 900);
 		
 	}
 	
@@ -55,7 +53,7 @@ class StageCharacterCreation extends Sprite
 	}
 	
 	//Write the code for the next story bit is required, as it wont all fit on one screen
-	static function displayStory()
+	static function displayStory(storyId:Int )
 	{
 		
 		var storyTextField:TextField = new TextField();
@@ -73,7 +71,7 @@ class StageCharacterCreation extends Sprite
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
-		var storySet = cnx.request("SELECT Story FROM Story");
+		var storySet = cnx.request("SELECT StoryText FROM IntroStory WHERE rowid = 1" /*+ storyId*/);
 		
 		
 		//Go through the rows in story and get the story
@@ -87,6 +85,7 @@ class StageCharacterCreation extends Sprite
 
 		// add the text field to the screen
 		myStage.addChild(storyTextField);
+		
 		
 
 	}
@@ -112,8 +111,6 @@ class StageCharacterCreation extends Sprite
 		
 		myStage.addChild( characterNameField );
 		
-		Sys.println(characterName);
-
 	}
 	
 	//store char name and start displaying story
@@ -137,7 +134,12 @@ class StageCharacterCreation extends Sprite
 		
 		GameManager.setCurrentName(characterNameField.text);
 		
+		//displayStory(1);
+		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
+		
+		myStage.removeChild(acceptCharacterNameButton);
+		myStage.removeChild(characterNameField);
 	}
 }
