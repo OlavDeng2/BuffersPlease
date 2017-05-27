@@ -126,7 +126,7 @@ class GameManager
 
 	}
 	
-	public static function getPuzzle(puzzleNumber:String)
+	public static function getPuzzle(puzzle:String)
 	{
 		/* Notes on what the different values represent in terms of atoms, It basically follows the periodic table
 		 *  
@@ -138,5 +138,141 @@ class GameManager
 		 * 
 		 *
 		//Do something*/
+		var xPos: Int = 50;
+		var yPos: Int = 50;
+		
+		
+		//create the atom variables
+		var nothing:Int = 0;
+		var H:Int = 1;
+		var C:Int = 6;
+		var O:Int = 8;
+		var Na:Int = 11;
+		setMyStage();
+		
+		
+		//Open the database*/
+		var cnx = Sqlite.open("DB/Data.db");
+		
+		//get the story from the database at collom story from table story
+		var mixingLevelData = cnx.request('SELECT * FROM $puzzle');
+		
+		for (row in mixingLevelData)
+		{
+			if (row.Collumn1 == 0)
+			{
+				
+				Sys.println("nothing was found");
+				//Do nothing
+			}
+			if (row.Collumn1 != 0)
+			{
+				if (row.Collumn1 == H)
+				{
+					ImageManager.addImage("img/Chemicals/H.png", xPos, yPos);
+					Sys.println("a Hydrogen Atom was found");
+				}
+				
+				if (row.Collumn1 == C)
+				{
+					ImageManager.addImage("img/Chemicals/C.png", xPos, yPos);
+					Sys.println("a Carbon Atom was found");
+				}
+				
+				if (row.Collumn1 == O)
+				{
+					ImageManager.addImage("img/Chemicals/O.png", xPos, yPos);
+					Sys.println("an Oxygen Atom was found");
+				}
+				
+				if (row.Collumn1 == Na)
+				{
+					ImageManager.addImage("img/Chemicals/Na.png", xPos, yPos);
+					Sys.println("a Sodium Atom was found");
+				}
+
+			}
+			
+			xPos += 150;
+			if (row.Collumn2 == 0)
+			{
+				
+				Sys.println("nothing was found");
+				//Do nothing
+			}
+			
+			if (row.Collumn2 != 0)
+			{
+				if (row.Collumn2 == H)
+				{
+					ImageManager.addImage("img/Chemicals/H.png", xPos, yPos);
+
+					Sys.println("a Hydrogen Atom was found" );
+				}
+				
+				if (row.Collumn2 == C)
+				{
+					ImageManager.addImage("img/Chemicals/C.png", xPos, yPos);
+					Sys.println("a Carbon Atom was found");
+				}
+				
+				if (row.Collumn2 == O)
+				{
+					ImageManager.addImage("img/Chemicals/O.png", xPos, yPos);
+					Sys.println("an Oxygen Atom was found");
+				}
+				
+				if (row.Collumn2 == Na)
+				{
+					ImageManager.addImage("img/Chemicals/Na.png", xPos, yPos);
+					Sys.println("a Sodium Atom was found");
+				}
+
+				
+			}
+			
+			xPos += 150;
+			if (row.Collumn3 == 0)
+			{
+				Sys.println("nothing was found");
+				//Do nothing
+			}
+			if (row.Collumn3 != 0)
+			{
+				
+				if (row.Collumn3 == H)
+				{
+					ImageManager.addImage("img/Chemicals/H.png", xPos, yPos);
+
+					Sys.println("a Hydrogen Atom was found");
+				}
+				
+				if (row.Collumn3 == C)
+				{
+					ImageManager.addImage("img/Chemicals/C.png", xPos, yPos);
+					Sys.println("a Carbon Atom was found");
+				}
+				
+				if (row.Collumn3 == O)
+				{
+					ImageManager.addImage("img/Chemicals/O.png", xPos, yPos);
+					Sys.println("an Oxygen Atom was found");
+				}
+				
+				if (row.Collumn3 == Na)
+				{
+					ImageManager.addImage("img/Chemicals/Na.png", xPos, yPos);
+					Sys.println("a Sodium Atom was found");
+				}
+			}
+			
+			yPos += 150;
+			xPos = 50;
+			
+		}
+		
+		// close the database
+		cnx.close();
 	}
+	
 }
