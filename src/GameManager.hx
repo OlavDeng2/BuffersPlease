@@ -1,20 +1,23 @@
 package;
 
+import openfl.display.Stage;
+
 import sys.db.Sqlite;
 
-
 import openfl.text.TextField;
+import openfl.text.TextFieldType;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.Font;
+import openfl.text.TextFormat;
+import openfl.text.TextFormatAlign;
+import openfl.Assets;
+
 
 /**
 /**
  * ...
  * @author Olav
  */
-
- typedef HighScore = 	 {
-	 var name:String;
-	 var points:Int;
- }
  
 class GameManager 
 {
@@ -22,9 +25,19 @@ class GameManager
 	
 	//variables which will be needed later
 	static var currentScore:Int;
+	static var place:Int = 1;
 	static var currentName:String;
 	static var characterTextInput:TextField;
 	
+	//variable to store the current stage that is being worked with
+	private static var myStage:Stage;
+	
+	//This function gets the current stage from the scene manager and sets it in this class so that all the buttons have the correct stage they are working with
+	private static function setMyStage()
+	{
+		myStage = SceneManager.getMyStage();
+
+	}
 	
 	//Function to get and set current score
 	public static function getCurrentScore()
@@ -59,9 +72,8 @@ class GameManager
 	
 	public static function getLeaderboard()
 	{
-		//Figure out typedef later
-		var highScore:HighScore;
-		var highScoresArray:Array<HighScore> = [];
+		setMyStage();
+		
 		
 		//Open the database*/
 		var cnx = Sqlite.open("DB/Data.db");
@@ -73,17 +85,35 @@ class GameManager
 		//Go through the rows in story and get the story
 		for (row in scoreSet)
 		{
+			var charName:String = row.Name;
+			var charScore:Int = row.Score;
 
-			highScore = {name: row.Name, points: row.Score};
-			highScoresArray.push(highScore);
+		
+			var scoreTextFieldText:String = '$place $charName $charScore';
+
+			
+			var scoreTextField:TextField = new TextField();
+			scoreTextField.text = scoreTextFieldText;
+			var fontSize = 40;
+			scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+			scoreTextField.autoSize = TextFieldAutoSize.LEFT;
+			scoreTextField.selectable = false;
+			scoreTextField.x = 75;
+			scoreTextField.y = place * 50;
+			myStage.addChild(scoreTextField);
+			
+			place += 1;
 			
 		}
 		
 		// close the database
 		cnx.close();
 		
-		Sys.println(highScoresArray);
-		return highScoresArray;
+		
+
+		
+		
+
 	}
 	
 	public static function getPuzzle(puzzleNumber:String)
@@ -97,6 +127,6 @@ class GameManager
 		 * 11 = Sodium
 		 * 
 		 *
-		//Do something
+		//Do something*/
 	}
 }
