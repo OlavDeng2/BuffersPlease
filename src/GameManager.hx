@@ -87,19 +87,28 @@ class GameManager
 		{
 			var charName:String = row.Name;
 			var charScore:Int = row.Score;
+			var scoreYStartPos:Int = 0;
+			var scoreXPos:Int = 75;
 
-		
-			var scoreTextFieldText:String = '$place $charName $charScore';
-
+			//add the names to the screen
+			var scoreNameTextFieldText:String = '$place $charName ';
+			var scoreNameTextField:TextField = new TextField();
+			scoreNameTextField.text = scoreNameTextFieldText;
+			var fontSize = 40;
+			scoreNameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+			scoreNameTextField.autoSize = TextFieldAutoSize.LEFT;
+			scoreNameTextField.x = scoreXPos;
+			scoreNameTextField.y = place * 50+ scoreYStartPos;
+			myStage.addChild(scoreNameTextField);
 			
+			//add the score to the screen
+			var scoreTextFieldText:String = '$charScore ';
 			var scoreTextField:TextField = new TextField();
 			scoreTextField.text = scoreTextFieldText;
 			var fontSize = 40;
 			scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			scoreTextField.autoSize = TextFieldAutoSize.LEFT;
-			scoreTextField.selectable = false;
-			scoreTextField.x = 75;
-			scoreTextField.y = place * 50;
+			scoreTextField.y = place * 50 + scoreYStartPos;
 			myStage.addChild(scoreTextField);
 			
 			place += 1;
