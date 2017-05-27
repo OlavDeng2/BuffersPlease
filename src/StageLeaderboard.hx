@@ -41,25 +41,5 @@ class StageLeaderboard extends Sprite
 		GameManager.getLeaderboard();
 	}
 	
-	//This function right now only displays the last result, gonna have to change that
-	static function displayLeaderboard()
-	{
-		// Figure out how to return an array, if possible, later.
-		var leaderBoard:Array<HighScore> = GameManager.getLeaderboard();
-		
-		/*var scoreTextField:TextField = new TextField();
-		
-		scoreTextField.text = playerName;
-		var fontSize = 40;
-		scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
-		scoreTextField.autoSize = TextFieldAutoSize.LEFT;
-		scoreTextField.selectable = false;
-		scoreTextField.x = 75;
-		scoreTextField.y = 50;
-		// add the text field to the screen
-		myStage.addChild(scoreTextField);*/
-		Sys.println(leaderBoard);
-		
-	}
 	
 }
