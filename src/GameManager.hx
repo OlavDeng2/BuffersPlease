@@ -108,6 +108,7 @@ class GameManager
 			var fontSize = 40;
 			scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			scoreTextField.autoSize = TextFieldAutoSize.LEFT;
+			scoreTextField.x = scoreXPos + 415;
 			scoreTextField.y = place * 50 + scoreYStartPos;
 			myStage.addChild(scoreTextField);
 			
