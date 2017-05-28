@@ -361,6 +361,8 @@ class GameManager
 
 		if (notMixed == false)
 		{
+			SoundManager.playSFX("Mixing");
+
 
 			for (atom in selection)
 			{
@@ -379,6 +381,8 @@ class GameManager
 		//reset card size
 		if(notMixed) 
 		{
+			
+			SoundManager.playSFX("WrongMix");
 			for (card in selection)
 			{
 				card.scaleX = 1.0;
