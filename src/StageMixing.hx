@@ -33,18 +33,4 @@ class StageMixing extends Sprite
 		
 	}
 	
-	static function addChems()
-	{
-		ImageManager.addImage("img/Chemicals/C.png", 100, 40);
-		ImageManager.addImage("img/Chemicals/C.png", 100, 200);
-		ImageManager.addImage("img/Chemicals/H.png", 220, 120);
-		ImageManager.addImage("img/Chemicals/N.png", 340, 40);
-		ImageManager.addImage("img/Chemicals/N.png", 340, 200);
-		ImageManager.addImage("img/Chemicals/Na.png", 100, 400);
-		ImageManager.addImage("img/Chemicals/Na.png", 100, 540);
-		ImageManager.addImage("img/Chemicals/C.png", 220, 470);
-		ImageManager.addImage("img/Chemicals/O.png", 340, 400);
-		ImageManager.addImage("img/Chemicals/O.png", 340, 540);
-		
-	}
 }
