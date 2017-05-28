@@ -369,37 +369,4 @@ class UIButton extends Button
 		//Play sound effect
 		SoundManager.playSFX("Cupboard");
 	}
-	
-	
-	
-	
-	// Duplicate function?
-	/*public static function musicOffButton(xPos:Int, yPos:Int)
-	{
-		setMyStage();
-		
-		var pressableMusicOffButton:Button = new Button("Music Off");
-		//set position
-		pressableMusicOffButton.y = yPos;
-		pressableMusicOffButton.x = xPos;
-		
-		//add button to sprite
-		myStage.addChild(pressableMusicOffButton);
-		
-		//add event listener
-		pressableMusicOffButton.addEventListener(MouseEvent.CLICK, musicOffButtonPress);
-	}
-	
-	private static function musicOffButtonPress(event:MouseEvent)
-	{
-		var pressableCupboardClosedButton:Button = cast(event.target);
-		Sys.println("the music now turns off ");
-		
-		//Play sound effect
-		SoundManager.playSFX("MenuSelect");
-	
-		//SoundManager........
-	}
-	
-	*/
 }
