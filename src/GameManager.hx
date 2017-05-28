@@ -335,137 +335,55 @@ class GameManager
 		//3 cards can be selected, if selected check if it creates a set
 		if (selection.length == 3)
 		{
-			for (atom in selection)
-			{
-				selection.pop;
-				myStage.removeChild(atom);
-			}
+			
+			checkIfMixed();
+
 			//no matter if it fails or not, create a new array
 			selection = new Array<Atom>();
 		}
 	}
 	
-	/*static function CheckIfSet()
+	static function checkIfMixed()
 	{
-		//Boolean for card value
-		var sameCardValues : Bool = false;
-		var differentCardValues : Bool = false;
-		
-		//Boolean for card colour
-		var sameColour : Bool = false;
-		var differentColour : Bool = false;
-		
-		//boolean for card shading
-		var sameShading : Bool = false;
-		var differentShading : Bool = false;
-		
-		//boolean for card shape
-		var sameShape : Bool = false;
-		var differentShape : Bool = false;
+
 		
 		//bool for set
-		var notSet : Bool = false;
+		var notMixed : Bool = true;
 		
 		
 		//General Value Check
 		//Check if the card values are the same
-		if (selection[0].cardValue == selection[1].cardValue && selection[0].cardValue == selection[2].cardValue)
+		if (selection[0].element == selection[1].element && selection[0].element == selection[2].element)
 		{
-			sameCardValues = true;
+			notMixed = false;
 		}
 		
-		//check if the card values are all different
-		if (selection[0].cardValue != selection[1].cardValue && selection[0].cardValue != selection[2].cardValue && selection[1].cardValue != selection[2].cardValue)
-		{
-			differentCardValues = true;
-		}
-		
-		
-		//Colour Checks
-		//check if colour is all the same
-		if (selection[0].colour == selection[1].colour && selection[0].colour == selection[2].colour)
-		{
-			sameColour = true;
-		}
 
-		//Check if colour is all different
-		if (selection[0].colour != selection[1].colour && selection[0].colour != selection[2].colour && selection[1].colour != selection[2].colour)
+		if (notMixed == false)
 		{
-			differentColour = true;
-		}
-		
-		//Shading Check
-		//check if shading is all the same
-		if (selection[0].colourShading == selection[1].colourShading && selection[0].colourShading == selection[2].colourShading)
-		{
-			sameShading = true;
-		}
-		
-		//check if shading is all different
-		if (selection[0].colourShading != selection[1].colourShading && selection[0].colourShading != selection[2].colourShading && selection[1].colourShading != selection[2].colourShading)
-		{
-			differentShading = true;
-		}
-		
-		
-		//General Shape Checks:
-		//check if shape is all the same
-		if (selection[0].shape == selection[1].shape && selection[0].shape == selection[2].shape)
-		{
-			sameShape = true;
-		}
-		
-		//Check if shape is all different
-		if (selection[0].shape != selection[1].shape && selection[0].shape != selection[2].shape && selection[1].shape != selection[2].shape)
-		{
-			differentShape = true;
-		}
 
-		if (sameCardValues || differentCardValues)
-		{
-			if (sameColour || differentColour)
+			for (atom in selection)
 			{
-				if (sameShading || differentShading)
-				{
-					if (sameShape || differentShape)
-					{
-						RemoveSet();
-						PlayCorrectSetSound();
-					}
-					//if conditions not met, unselect cards
-					else
-					{
-						notSet = true;
-					}
-				}
-				//if conditions not met, unselect cards
-				else
-				{
-					notSet = true;
-				}
+				selection.pop;
+				myStage.removeChild(atom);
 			}
-			//if conditions not met, unselect cards
-			else
-			{
-				notSet = true;
-			}
+	
 			
 		}
 		//if conditions not met, unselect cards
 		else
 		{
-			notSet = true;
+			notMixed = true;
 		}
 		
 		//reset card size
-		if(notSet) 
+		if(notMixed) 
 		{
 			for (card in selection)
 			{
 				card.scaleX = 1.0;
 				card.scaleY = 1.0;
 			}
-			PlayWrongSetSound();
 		}
-	}*/
+	}
 }

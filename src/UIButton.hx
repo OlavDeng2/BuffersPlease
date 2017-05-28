@@ -292,6 +292,8 @@ class UIButton extends Button
 	{
 		var pressableNotepadButton:Button = cast(event.target);
 		Sys.println("notepad now opens");
+		ImageManager.addImage('img/Player Interface/NotepadOpen.png', 75, 75);
+
 		
 		//Play sound effect
 		SoundManager.playSFX("Book");
@@ -316,6 +318,7 @@ class UIButton extends Button
 	{
 		var pressableChemGuideButton:Button = cast(event.target);
 		Sys.println("The chemguide now opens");
+		ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75);
 		
 		//Play sound effect
 		SoundManager.playSFX("Book");
