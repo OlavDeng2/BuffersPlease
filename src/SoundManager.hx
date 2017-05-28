@@ -20,6 +20,7 @@ class SoundManager
 	static var playedMusic:Sound;
 	static var sfxSoundPlay:Sound;
 	static var musicPlaying:Bool = true;
+	static var musicGain:Float = 0.05;
 	
 	//plays music on function call + musicName 
 	public static function playMusic(musicName:String)
@@ -38,8 +39,9 @@ class SoundManager
 		 * 1st parameter is volume, 0 is minimum, 1 is maximum
 		 * wnd parameter is placing(3d) , -1 is left, 1 is right, 0 is center
 		 * */
-		musicChannel.soundTransform = new SoundTransform(0.05, 0);
+		musicChannel.soundTransform = new SoundTransform(musicGain, 0);
 	}
+	
 	
 	//plays sound on function call + sfxName 
 	public static function playSFX(sfxName:String )
@@ -51,17 +53,44 @@ class SoundManager
 		sfxChannel = sfxSoundPlay.play();
 	}
 	
-	/*public static function musicPlaying()
+	
+	public static function musicGainSofter()
 	{
-		/*if there is music playing, stops music
-		if (musicChannel != null)
+		//if there is music playing, stops music
+		musicGain -= 0.01;
+		if (musicGain <= 0) musicGain = 0;
+		
+		
+		// when music gain is 0, stops the music and sets musicplaying to false
+		if (musicGain == 0)
+		{
+			if (musicChannel != null)
 			musicChannel.stop();
 			
-		//Play sound effect
-		sfxSoundPlay = Assets.getSound("sfx/" + sfxName + ".ogg");
+			musicPlaying = false;
+		}
 		
-		//makes sure sfx is being played on its own channel
-		sfxChannel = sfxSoundPlay.play();
+		//makes sure the new music gain is set to the musicChanel
+		musicChannel.soundTransform = new SoundTransform(musicGain, 0);
+	}
+	
+	
+	public static function musicGainLouder()
+	{
+		//if there is music playing, stops music
+		musicGain += 0.01;
+		if (musicGain >= 0.05) musicGain = 0.05;
 		
-	}*/
+		
+		//if there musicPlaying is false, set it to true and plays music
+		if (musicPlaying == false)
+		{
+			musicChannel = playedMusic.play(0.0, 1000);
+			
+			musicPlaying = true;
+		}
+		
+		//makes sure the new music gain is set to the musicChanel
+		musicChannel.soundTransform = new SoundTransform(musicGain, 0);
+	}
 }

@@ -168,6 +168,8 @@ class UIButton extends Button
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
+		
+		SoundManager.musicGainSofter();
 	}
 	
 	
@@ -196,6 +198,8 @@ class UIButton extends Button
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
+		
+		SoundManager.musicGainLouder();
 	}
 	
 	//Mixing Minigame Button(bell)
