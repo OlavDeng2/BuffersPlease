@@ -7,6 +7,8 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
 
+
+
 /**
  * ...
  * @author Olav
@@ -33,4 +35,5 @@ class StageMixing extends Sprite
 		
 	}
 	
+
 }

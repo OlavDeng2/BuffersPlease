@@ -277,6 +277,8 @@ class GameManager
 		var hydrogenAtom:Atom = new Atom ("H");
 		hydrogenAtom.x = xPos;
 		hydrogenAtom.y = yPos;
+		hydrogenAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
+
 		myStage.addChild(hydrogenAtom);
 	}
 	
@@ -285,6 +287,9 @@ class GameManager
 		var carbonAtom:Atom = new Atom ("C");
 		carbonAtom.x = xPos;
 		carbonAtom.y = yPos;
+		carbonAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
+
+		
 		myStage.addChild(carbonAtom);
 	}
 	
@@ -293,6 +298,8 @@ class GameManager
 		var oxygenAtom:Atom = new Atom ("O");
 		oxygenAtom.x = xPos;
 		oxygenAtom.y = yPos;
+		oxygenAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
+
 		myStage.addChild(oxygenAtom);
 	}
 	
@@ -301,11 +308,16 @@ class GameManager
 		var sodiumAtom:Atom = new Atom ("Na");
 		sodiumAtom.x = xPos;
 		sodiumAtom.y = yPos;
+		sodiumAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
 		myStage.addChild(sodiumAtom);
+		
 	}
 	
 	private static function onAtomSelect(event:MouseEvent)
 	{
 		//Do Something
+		
+		var sodiumAtom:Atom = cast(event.target);
+		Sys.println("atom was selected");
 	}
 }
