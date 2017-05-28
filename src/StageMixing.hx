@@ -28,23 +28,9 @@ class StageMixing extends Sprite
 	{
 		//UIButton.mainMenuButton(360, 360);
 		UIButton.nextButton(360, 900);
-		addChems();
 		ImageManager.addImage("img/shackUI/Meter.png", 400, 400);
+		GameManager.getPuzzle("Mixing1");
 		
 	}
 	
-	static function addChems()
-	{
-		ImageManager.addImage("img/Chemicals/C.png", 100, 40);
-		ImageManager.addImage("img/Chemicals/C.png", 100, 200);
-		ImageManager.addImage("img/Chemicals/H.png", 220, 120);
-		ImageManager.addImage("img/Chemicals/N.png", 340, 40);
-		ImageManager.addImage("img/Chemicals/N.png", 340, 200);
-		ImageManager.addImage("img/Chemicals/Na.png", 100, 400);
-		ImageManager.addImage("img/Chemicals/Na.png", 100, 540);
-		ImageManager.addImage("img/Chemicals/C.png", 220, 470);
-		ImageManager.addImage("img/Chemicals/O.png", 340, 400);
-		ImageManager.addImage("img/Chemicals/O.png", 340, 540);
-		
-	}
 }

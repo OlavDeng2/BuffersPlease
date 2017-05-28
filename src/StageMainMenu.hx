@@ -55,7 +55,7 @@ class StageMainMenu extends Sprite
 	}
 	static function showTitle()
 	{
-		
+		//test
 	}
 	
 }

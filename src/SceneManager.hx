@@ -31,6 +31,8 @@ class SceneManager
 	//As you might imagine from the name, this function switches you to the Leaderboard Stage
 	public static function switchToStageLeaderboard() 
 	{
+		myStage.removeChildren();
+
 		StageLeaderboard.setup(myStage);
 		StageLeaderboard.start();
 	}
@@ -39,6 +41,7 @@ class SceneManager
 	//This function switches you to the Main Menu Stage
 	public static function switchToStageMainMenu()
 	{
+		myStage.removeChildren();
 		StageMainMenu.setup(myStage);
 		StageMainMenu.start();
 	}
@@ -46,6 +49,7 @@ class SceneManager
 	//This function switches you to the Character Creation Stage
 	public static function switchToStageCharacterCreation()
 	{
+		myStage.removeChildren();
 		StageCharacterCreation.setup(myStage);
 		StageCharacterCreation.start();
 	}
@@ -53,12 +57,14 @@ class SceneManager
 	//This function switches you to the mixing mini game
 	public static function switchToStageMixing()
 	{
+		myStage.removeChildren();
 		StageMixing.setup(myStage);
 		StageMixing.start();
 	}
 		
 	public static function switchToStageMainGame()
 	{
+		myStage.removeChildren();
 		StageMainGame.setup(myStage);
 		StageMainGame.start();
 	}

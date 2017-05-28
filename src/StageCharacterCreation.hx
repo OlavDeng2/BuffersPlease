@@ -23,13 +23,22 @@ import openfl.text.TextFormatAlign;
  */
 class StageCharacterCreation extends Sprite
 {
-	public static var characterName:String = "Enter your Name";
-	public static var characterNameField:TextField = new TextField();
 
 		
 	//Declare some necesarry variables
 	private static var myStage:Stage;
 	
+	//create text fields
+	public static var characterNameField:TextField = new TextField();
+	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
+	public static var storyTextField:TextField = new TextField();
+
+	//create some other variables that are needed
+	public static var storyLocation:Int;
+	public static var storyLength: Int = 3;
+	public static var characterName:String = " ";
+
+
 	//do the necesarry setups
 	public static function setup(stageref:Stage)
 	{
@@ -38,13 +47,11 @@ class StageCharacterCreation extends Sprite
 
 	public static function start() 
 	{
-		
+		//rather self descriptive
 		addBackground();
 		SceneManager.setMyStage(myStage);
-		
-		UIButton.nextButton(600, 900);
 		inputCharacterName();
-		acceptCharacterName(50, 50);
+		acceptCharacterName(600, 900);
 		
 	}
 	
@@ -55,13 +62,11 @@ class StageCharacterCreation extends Sprite
 	}
 	
 	//Write the code for the next story bit is required, as it wont all fit on one screen
-	static function displayStory()
+	static function displayStory(storyId:Int )
 	{
 		
-		var storyTextField:TextField = new TextField();
 		var fontSize = 40;
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
-		//storyTextField.textWidth = 500.0;
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
 		storyTextField.selectable = false;
 		storyTextField.x = 75;
@@ -73,13 +78,13 @@ class StageCharacterCreation extends Sprite
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
-		var storySet = cnx.request("SELECT Story FROM Story");
+		var storySet = cnx.request("SELECT StoryText FROM IntroStory WHERE rowid = " + storyId);
 		
 		
 		//Go through the rows in story and get the story
 		for (row in storySet)
 		{
-			storyTextField.text = row.Story;
+			storyTextField.text = row.StoryText;
 		}
 		
 		// close the database
@@ -88,6 +93,7 @@ class StageCharacterCreation extends Sprite
 		// add the text field to the screen
 		myStage.addChild(storyTextField);
 		
+		
 
 	}
 	
@@ -95,6 +101,13 @@ class StageCharacterCreation extends Sprite
 	//this function handles the creation of the character name
 	static function inputCharacterName()
 	{
+		//This is the text field which is not selectable nor editable which just displays the text asking to enter your character name
+		var fontSize = 30;
+		pleaseEnterCharacterNameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		pleaseEnterCharacterNameTextField.text = "Please Enter your Character Name";
+		pleaseEnterCharacterNameTextField.x = 150;
+		pleaseEnterCharacterNameTextField.y = 100;
+		pleaseEnterCharacterNameTextField.autoSize = TextFieldAutoSize.LEFT;
 		
 		//This creates a text field which you can edit, still need to handle the getting of the info from the text field and saving of it.
 		var fontSize = 30;
@@ -102,18 +115,21 @@ class StageCharacterCreation extends Sprite
 		characterNameField.selectable = true;
 		characterNameField.text = characterName;
 		characterNameField.type = TextFieldType.INPUT;
-		characterNameField.x = 200;
-		characterNameField.y = 800;
+		characterNameField.x = 210;
+		characterNameField.width = 270;
+		characterNameField.height = 50;
+		characterNameField.y = 150;
 		characterNameField.restrict = "A-Z 0-0 a-z";
 		characterNameField.maxChars = 16; 
 		characterName = characterNameField.text;
-		characterNameField.autoSize = TextFieldAutoSize.LEFT;
+		//characterNameField.autoSize = TextFieldAutoSize.LEFT;
+		characterNameField.background = true;
+		characterNameField.backgroundColor = 0xababab;
+		characterNameField.border = true;
 		
-		
+		myStage.addChild(pleaseEnterCharacterNameTextField);
 		myStage.addChild( characterNameField );
 		
-		Sys.println(characterName);
-
 	}
 	
 	//store char name and start displaying story
@@ -130,6 +146,7 @@ class StageCharacterCreation extends Sprite
 		acceptCharacterNameButton.addEventListener(MouseEvent.CLICK, acceptCharacterNameButtonPress);
 	}
 	
+	//actual functionality of when the acceptCharacterName button is pressed
 	static function acceptCharacterNameButtonPress(event:MouseEvent)
 	{
 		var acceptCharacterNameButton:Button = cast(event.target);
@@ -137,6 +154,56 @@ class StageCharacterCreation extends Sprite
 		
 		GameManager.setCurrentName(characterNameField.text);
 		
+		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
+		storyLocation = 1;
+		
+		displayStory(storyLocation);
+		nextStory(600, 900);
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
+		
+		//remove things which are now unecesarry
+		myStage.removeChild(acceptCharacterNameButton);
+		myStage.removeChild(characterNameField);
+		myStage.removeChild(pleaseEnterCharacterNameTextField);
+	}
+	
+	
+	//next story button
+	static function nextStory(xPos:Int, yPos:Int)
+	{
+		var nextStoryButton:Button = new Button("Play");
+		
+		nextStoryButton.y = yPos;
+		nextStoryButton.x = xPos;
+		
+		myStage.addChild(nextStoryButton);
+		
+		nextStoryButton.addEventListener(MouseEvent.CLICK, nextStoryPress);
+	}
+	
+	//functionality of the above button	
+	static function nextStoryPress(event:MouseEvent)
+	{
+		myStage.removeChild(storyTextField);
+
+		var nextStoryButton:Button = cast(event.target);
+		Sys.println("story next");
+		
+		storyLocation += 1;
+		
+		displayStory(storyLocation);
+		if (storyLocation == storyLength)
+		{
+			UIButton.nextButton(600, 900);
+		}
+		
+		else
+		{
+			nextStory(600, 900);
+
+		}
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
 	}
