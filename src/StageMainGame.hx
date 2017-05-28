@@ -39,6 +39,7 @@ class StageMainGame extends Sprite
 		UIButton.bufferReadyButton(600, 750);
 		UIButton.mixingButton(85, 460);
 		UIButton.chemGuideButton(595, 505);
+		UIButton.cupboardOpenButton(360, 1065);
 		UIButton.notepadButton(120, 720);
 		UIButton.mainMenuButton(600, 900);
 		
