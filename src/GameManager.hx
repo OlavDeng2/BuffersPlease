@@ -13,6 +13,9 @@ import openfl.text.TextFormatAlign;
 import openfl.Assets;
 
 
+import openfl.events.MouseEvent;
+
+
 /**
 /**
  * ...
@@ -126,7 +129,11 @@ class GameManager
 
 	}
 	
-	public static function getPuzzle(puzzleNumber:String)
+	/*
+	 * This section of the game manager class deals with the mixing minigame
+	 */ 
+	
+	public static function getPuzzle(puzzle:String)
 	{
 		/* Notes on what the different values represent in terms of atoms, It basically follows the periodic table
 		 *  
@@ -136,7 +143,169 @@ class GameManager
 		 * 8 = Oxygen
 		 * 11 = Sodium
 		 * 
-		 *
-		//Do something*/
+		 */
+		var xPos: Int = 50;
+		var yPos: Int = 50;
+		
+		
+		//create the atom variables
+		var nothing:Int = 0;
+		var H:Int = 1;
+		var C:Int = 6;
+		var O:Int = 8;
+		var Na:Int = 11;
+		setMyStage();
+		
+		
+		//Open the database*/
+		var cnx = Sqlite.open("DB/Data.db");
+		
+		//get the story from the database at collom story from table story
+		var mixingLevelData = cnx.request('SELECT * FROM $puzzle');
+		
+		for (row in mixingLevelData)
+		{
+			if (row.Collumn1 == 0)
+			{
+				
+				Sys.println("nothing was found");
+				//Do nothing
+			}
+
+			if (row.Collumn1 == H)
+			{
+				hydrogenAtom(xPos, yPos);
+				Sys.println("a Hydrogen Atom was found");
+			}
+				
+			if (row.Collumn1 == C)
+			{
+				carbonAtom(xPos, yPos);
+				Sys.println("a Carbon Atom was found");
+			}
+				
+			if (row.Collumn1 == O)
+			{
+				oxygenAtom(xPos, yPos);
+				Sys.println("an Oxygen Atom was found");
+			}
+				
+			if (row.Collumn1 == Na)
+			{
+				sodiumAtom(xPos, yPos);
+				Sys.println("a Sodium Atom was found");
+			}
+
+			
+			
+			xPos += 150;
+			if (row.Collumn2 == 0)
+			{
+				
+				Sys.println("nothing was found");
+				//Do nothing
+			}
+
+			if (row.Collumn2 == H)
+			{
+				hydrogenAtom(xPos, yPos);
+			}
+			
+			if (row.Collumn2 == C)
+			{
+				carbonAtom(xPos, yPos);	
+				Sys.println("a Carbon Atom was found");
+			}
+				
+			if (row.Collumn2 == O)
+			{
+				oxygenAtom(xPos, yPos);
+				Sys.println("an Oxygen Atom was found");
+			}
+				
+			if (row.Collumn2 == Na)
+			{
+				sodiumAtom(xPos, yPos);
+				Sys.println("a Sodium Atom was found");
+			}
+
+			
+			xPos += 150;
+			if (row.Collumn3 == 0)
+			{
+				Sys.println("nothing was found");
+				//Do nothing
+			}
+
+			if (row.Collumn3 == H)
+			{
+				hydrogenAtom(xPos, yPos);
+
+				Sys.println("a Hydrogen Atom was found");
+			}
+			
+			if (row.Collumn3 == C)
+			{
+				carbonAtom(xPos, yPos);
+				Sys.println("a Carbon Atom was found");
+			}
+			
+			if (row.Collumn3 == O)
+			{
+				oxygenAtom(xPos, yPos);
+				Sys.println("an Oxygen Atom was found");
+			}
+			
+			if (row.Collumn3 == Na)
+			{
+				sodiumAtom(xPos, yPos);
+				Sys.println("a Sodium Atom was found");
+			}
+		
+			
+			yPos += 150;
+			xPos = 50;
+			
+		}
+		
+		// close the database
+		cnx.close();
+	}
+	
+	private static function hydrogenAtom(xPos:Int, yPos:Int)
+	{
+		var hydrogenAtom:Atom = new Atom ("H");
+		hydrogenAtom.x = xPos;
+		hydrogenAtom.y = yPos;
+		myStage.addChild(hydrogenAtom);
+	}
+	
+	private static function carbonAtom(xPos:Int, yPos:Int)
+	{
+		var carbonAtom:Atom = new Atom ("C");
+		carbonAtom.x = xPos;
+		carbonAtom.y = yPos;
+		myStage.addChild(carbonAtom);
+	}
+	
+	private static function oxygenAtom(xPos:Int, yPos:Int)
+	{
+		var oxygenAtom:Atom = new Atom ("O");
+		oxygenAtom.x = xPos;
+		oxygenAtom.y = yPos;
+		myStage.addChild(oxygenAtom);
+	}
+	
+	private static function sodiumAtom(xPos:Int, yPos:Int)
+	{
+		var sodiumAtom:Atom = new Atom ("Na");
+		sodiumAtom.x = xPos;
+		sodiumAtom.y = yPos;
+		myStage.addChild(sodiumAtom);
+	}
+	
+	private static function onAtomSelect(event:MouseEvent)
+	{
+		//Do Something
 	}
 }
