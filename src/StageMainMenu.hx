@@ -43,8 +43,8 @@ class StageMainMenu extends Sprite
 	
 		
 		//Really self explanatory, if not see the UIButton class
-		UIButton.startButton(360, 250);
-		UIButton.leaderboardButton(360, 500);
+		UIButton.startButton(360, 400);
+		UIButton.leaderboardButton(360, 650);
 		UIButton.exitButton(360, 900);
 		UIButton.musicOffButton(600, 650); 
 		UIButton.musicOnButton(600, 900);

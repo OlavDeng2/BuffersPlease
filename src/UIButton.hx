@@ -292,6 +292,8 @@ class UIButton extends Button
 	{
 		var pressableNotepadButton:Button = cast(event.target);
 		Sys.println("notepad now opens");
+		ImageManager.addImage('img/Player Interface/NotepadOpen.png', 75, 75);
+
 		
 		//Play sound effect
 		SoundManager.playSFX("Book");
@@ -316,13 +318,14 @@ class UIButton extends Button
 	{
 		var pressableChemGuideButton:Button = cast(event.target);
 		Sys.println("The chemguide now opens");
+		ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75);
 		
 		//Play sound effect
 		SoundManager.playSFX("Book");
 	}
 	
 	//opening the cupboard
-	public static function cupboardOpenButton(xPos:Int, yPos:Int)
+	public static function cupboardOpenButton(xPos:Float, yPos:Float)
 	{
 		setMyStage();
 		
@@ -342,64 +345,38 @@ class UIButton extends Button
 		var pressableCupboardOpenButton:Button = cast(event.target);
 		Sys.println("the cupboard now opens");
 		
+		
+		cupboardCloseButton(pressableCupboardOpenButton.x, pressableCupboardOpenButton.y);
+		myStage.removeChild(pressableCupboardOpenButton);
+		
 		//Play sound effect
 		SoundManager.playSFX("Cupboard");
 	}
 	
 	//Closing the cupboard
-	public static function cupboardCloseButton(xPos:Int, yPos:Int)
+	public static function cupboardCloseButton(xPos:Float, yPos:Float)
 	{
 		setMyStage();
 		
-		var pressableCupboardClosedButton:Button = new Button("Cupboard_Open");
+		var pressableCupboardCloseButton:Button = new Button("Cupboard_Open");
 		
-		pressableCupboardClosedButton.y = yPos;
-		pressableCupboardClosedButton.x = xPos;
+		pressableCupboardCloseButton.y = yPos;
+		pressableCupboardCloseButton.x = xPos;
 		
-		myStage.addChild(pressableCupboardClosedButton);
+		myStage.addChild(pressableCupboardCloseButton);
 		
-		pressableCupboardClosedButton.addEventListener(MouseEvent.CLICK, cupboardCloseButtonPress);
+		pressableCupboardCloseButton.addEventListener(MouseEvent.CLICK, cupboardCloseButtonPress);
 	}
 	
 	private static function cupboardCloseButtonPress(event:MouseEvent)
 	{
-		var pressableCupboardClosedButton:Button = cast(event.target);
+		var pressableCupboardCloseButton:Button = cast(event.target);
 		Sys.println("the cupboard now closes");
+		
+		cupboardOpenButton(pressableCupboardCloseButton.x, pressableCupboardCloseButton.y);
+		myStage.removeChild(pressableCupboardCloseButton);
 		
 		//Play sound effect
 		SoundManager.playSFX("Cupboard");
 	}
-	
-	
-	
-	
-	// Duplicate function?
-	/*public static function musicOffButton(xPos:Int, yPos:Int)
-	{
-		setMyStage();
-		
-		var pressableMusicOffButton:Button = new Button("Music Off");
-		//set position
-		pressableMusicOffButton.y = yPos;
-		pressableMusicOffButton.x = xPos;
-		
-		//add button to sprite
-		myStage.addChild(pressableMusicOffButton);
-		
-		//add event listener
-		pressableMusicOffButton.addEventListener(MouseEvent.CLICK, musicOffButtonPress);
-	}
-	
-	private static function musicOffButtonPress(event:MouseEvent)
-	{
-		var pressableCupboardClosedButton:Button = cast(event.target);
-		Sys.println("the music now turns off ");
-		
-		//Play sound effect
-		SoundManager.playSFX("MenuSelect");
-	
-		//SoundManager........
-	}
-	
-	*/
 }

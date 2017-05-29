@@ -32,6 +32,9 @@ class GameManager
 	static var currentName:String;
 	static var characterTextInput:TextField;
 	
+	static var selection:Array<Atom> = [];
+
+	
 	//variable to store the current stage that is being worked with
 	private static var myStage:Stage;
 	
@@ -277,6 +280,8 @@ class GameManager
 		var hydrogenAtom:Atom = new Atom ("H");
 		hydrogenAtom.x = xPos;
 		hydrogenAtom.y = yPos;
+		hydrogenAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
+
 		myStage.addChild(hydrogenAtom);
 	}
 	
@@ -285,6 +290,9 @@ class GameManager
 		var carbonAtom:Atom = new Atom ("C");
 		carbonAtom.x = xPos;
 		carbonAtom.y = yPos;
+		carbonAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
+
+		
 		myStage.addChild(carbonAtom);
 	}
 	
@@ -293,6 +301,8 @@ class GameManager
 		var oxygenAtom:Atom = new Atom ("O");
 		oxygenAtom.x = xPos;
 		oxygenAtom.y = yPos;
+		oxygenAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
+
 		myStage.addChild(oxygenAtom);
 	}
 	
@@ -301,11 +311,83 @@ class GameManager
 		var sodiumAtom:Atom = new Atom ("Na");
 		sodiumAtom.x = xPos;
 		sodiumAtom.y = yPos;
+		sodiumAtom.addEventListener(MouseEvent.CLICK, onAtomSelect);
 		myStage.addChild(sodiumAtom);
+		
 	}
 	
 	private static function onAtomSelect(event:MouseEvent)
 	{
 		//Do Something
+		
+		var atom:Atom = cast(event.target);
+		Sys.println("atom was selected");
+
+		//make card bigger so you can see it is selected
+		atom.scaleX = 1.1;
+		atom.scaleY = 1.1;
+		
+		if (selection.indexOf(atom) == -1)
+		{
+			selection.push(atom);
+		}
+		
+		//3 cards can be selected, if selected check if it creates a set
+		if (selection.length == 3)
+		{
+			
+			checkIfMixed();
+
+			//no matter if it fails or not, create a new array
+			selection = new Array<Atom>();
+		}
+	}
+	
+	static function checkIfMixed()
+	{
+
+		
+		//bool for set
+		var notMixed : Bool = true;
+		
+		
+		//General Value Check
+		//Check if the card values are the same
+		if (selection[0].element == selection[1].element && selection[0].element == selection[2].element)
+		{
+			notMixed = false;
+		}
+		
+
+		if (notMixed == false)
+		{
+			SoundManager.playSFX("Mixing");
+
+
+			for (atom in selection)
+			{
+				selection.pop;
+				myStage.removeChild(atom);
+			}
+	
+			
+		}
+		//if conditions not met, unselect cards
+		else
+		{
+			notMixed = true;
+		}
+		
+		//reset card size
+		if(notMixed) 
+		{
+			
+			SoundManager.playSFX("WrongMix");
+			for (card in selection)
+			{
+				card.scaleX = 1.0;
+				card.scaleY = 1.0;
+			}
+		}
 	}
 }
