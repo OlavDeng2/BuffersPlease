@@ -28,7 +28,6 @@ class GameManager
 	
 	//variables which will be needed later
 	static var currentScore:Int;
-	static var place:Int = 1;
 	static var currentName:String;
 	static var characterTextInput:TextField;
 	
@@ -79,6 +78,8 @@ class GameManager
 	public static function getLeaderboard()
 	{
 		setMyStage();
+		var place:Int = 1;
+
 		
 		
 		//Open the database*/
