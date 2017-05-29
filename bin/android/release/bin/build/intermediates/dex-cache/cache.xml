@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Users\Olav\Desktop\school\Block4\Project Game\BuffersPlease\bin\android\release\bin\app\build\intermediates\exploded-aar\bin.deps\extension-api\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c156ba754713526ac94ebe32c54c39a92e5b9930">
+        <dex dex="D:\Users\Olav\Desktop\school\Block4\Project Game\BuffersPlease\bin\android\release\bin\app\build\intermediates\pre-dexed\debug\bin.deps-extension-api-unspecified_12544dbd568a1ab9bbda775f6f89983a62e9a28b.jar" />
+    </item>
+
+</items>

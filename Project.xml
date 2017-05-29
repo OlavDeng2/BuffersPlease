@@ -3,14 +3,14 @@
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="BuffersPlease" package="BuffersPlease" version="1.0.0" company="Andrey NekoBear Studios" />
+	<meta title="BuffersPlease" package="com.Olav.Buffers" version="1.0.0" company="Andrey NekoBear Studios" />
 	
 	<!-- output -->
 	<app main="Main" file="BuffersPlease" path="bin" />
 	
 	<window background="#000000" fps="60" />
 	<window width="720" height="1280" unless="mobile" />
-	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+	<window orientation="portrait" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->
 	<source path="src" />
@@ -18,7 +18,7 @@
 	<haxelib name="actuate" />
 	
 	<!-- assets -->
-	<icon path="assets/shackUI/Client.png" />
+	<icon path="assets/openfl.svg" />
 	<assets path="assets/img" rename="img" />
 	<assets path="assets/Databases" rename="DB" />
 	<assets path="assets/Fonts" rename="Fonts" />

@@ -1,0 +1,4 @@
+HXCPP_ARMV7=1
+android-9=1
+hxcpp_api_level=331
+hxcpp=D:\Software\Haxe\haxe\lib\hxcpp/3,4,64/
