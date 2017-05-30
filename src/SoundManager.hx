@@ -93,4 +93,30 @@ class SoundManager
 		//makes sure the new music gain is set to the musicChanel
 		musicChannel.soundTransform = new SoundTransform(musicGain, 0);
 	}
+	
+	
+	//toggle the music on and off 
+	public static function toggleMusic()
+	{
+		//if music is playing turns off music, if not playing starts playing music.
+		if (musicPlaying == true)
+		{
+			musicChannel.stop();
+			
+			musicPlaying = false;
+		}else{
+			if (musicPlaying == false)
+			{
+				//Plays last inisiated music
+				musicChannel = playedMusic.play(0.0, 1000);
+				
+				//makes music right Gain
+				musicChannel.soundTransform = new SoundTransform(musicGain, 0);
+				
+				musicPlaying = true;
+			}
+		}
+	}
+	
+	
 }
