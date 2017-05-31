@@ -36,7 +36,7 @@ class StageCharacterCreation extends Sprite
 	//create some other variables that are needed
 	public static var storyLocation:Int;
 	public static var storyLength: Int = 3;
-	public static var characterName:String = " ";
+	public static var characterName:String = "";
 
 
 	//do the necesarry setups
