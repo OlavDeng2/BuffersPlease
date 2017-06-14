@@ -308,9 +308,10 @@ class UIButton extends Button
 		
 		if (notepadButtonPressed == false)
 		{
-			ImageManager.addImage('img/Player Interface/NotepadOpen.png', 75, 75);
+			ImageManager.addImage('img/Player Interface/NotepadOpen.png', 75, 75, 0.75, 0.75);
 			
-			closeNotepadButton((pressableNotepadButton.x + pressableNotepadButton.width / 2), (pressableNotepadButton.y + pressableNotepadButton.height / 2));
+			closeNotepadButton(80,80);
+			//closeNotepadButton((pressableNotepadButton.x + pressableNotepadButton.width / 2), (pressableNotepadButton.y + pressableNotepadButton.height / 2));
 			
 			notepadButtonPressed = true;
 		}
@@ -369,9 +370,10 @@ class UIButton extends Button
 		//checks if the chemguide is already pressed so it won't open a second one
 		if (chemGuideButtonPressed == false)
 		{
-			ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75);
+			ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75, 1, 1);
 			
-			closeChemGuideButton((pressableChemGuideButton.x + pressableChemGuideButton.width / 2), (pressableChemGuideButton.y + pressableChemGuideButton.height / 2));
+			closeChemGuideButton(80,80);
+			//closeChemGuideButton((pressableChemGuideButton.x + pressableChemGuideButton.width / 2), (pressableChemGuideButton.y + pressableChemGuideButton.height / 2));
 			
 			chemGuideButtonPressed = true;
 		}

@@ -30,7 +30,7 @@ class StageMixing extends Sprite
 	{
 		//UIButton.mainMenuButton(360, 360);
 		UIButton.nextButton(360, 900);
-		ImageManager.addImage("img/shackUI/Meter.png", 400, 400);
+		ImageManager.addImage("img/shackUI/Meter.png", 400, 400,1,1);
 		GameManager.getPuzzle("Mixing1");
 		
 	}

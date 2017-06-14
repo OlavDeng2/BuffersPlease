@@ -48,13 +48,13 @@ class StageMainGame extends Sprite
 	
 	static function addShack()
 	{
-		ImageManager.addImage("img/shackUI/Background.png",0,0);
-		ImageManager.addImage("img/shackUI/Client.png",0,0);
-		ImageManager.addImage("img/shackUI/CupboardClosed.png",0,0);
-		ImageManager.addImage("img/shackUI/Screen.png",0,0);
+		ImageManager.addImage("img/shackUI/Background.png",0,0,1,1);
+		ImageManager.addImage("img/shackUI/Client.png",0,0,1,1);
+		ImageManager.addImage("img/shackUI/CupboardClosed.png",0,0,1,1);
+		ImageManager.addImage("img/shackUI/Screen.png",0,0,1,1);
 		//ImageManager.addImage("img/shackUI/CupboardOpened.png");
-		ImageManager.addImage("img/shackUI/Desk.png",0,0);
-		ImageManager.addImage("img/shackUI/Meter.png", 0, 0);
+		ImageManager.addImage("img/shackUI/Desk.png",0,0,1,1);
+		ImageManager.addImage("img/shackUI/Meter.png", 0, 0,1,1);
 		
 
 	}
