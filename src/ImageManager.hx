@@ -28,7 +28,7 @@ class ImageManager
 	}
 	
 	
-	public static function addImage(imagePath:String, xPos:Int, yPos:Int) //Have to implement the changing of coords
+	public static function addImage(imagePath:String, xPos:Int, yPos:Int, xScale:Float, yScale:Float) //Have to implement the changing of coords
 	{
 		
 		setMyStage();
@@ -40,6 +40,8 @@ class ImageManager
 		Image.x = xPos;
 		Image.y = yPos;
 		
+		Image.scaleX = xScale;
+		Image.scaleY = yScale;
 		
 		myStage.addChild(Image);
 		

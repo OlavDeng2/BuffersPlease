@@ -32,8 +32,11 @@ class SoundManager
 		
 			
 		//plays Music
-		playedMusic = Assets.getMusic("music/" + musicName + ".ogg");
-		musicChannel = playedMusic.play(0.0, 1000);
+		if (musicPlaying == true)
+		{
+			playedMusic = Assets.getMusic("music/" + musicName + ".ogg");
+			musicChannel = playedMusic.play(0.0, 1000);
+		}
 		
 		
 		/*Sound transformer.
@@ -51,7 +54,10 @@ class SoundManager
 		sfxSoundPlay = Assets.getSound("sfx/" + sfxName + ".ogg");
 		
 		//makes sure sfx is being played on its own channel
-		sfxChannel = sfxSoundPlay.play();
+		if (musicPlaying == true)
+		{
+			sfxChannel = sfxSoundPlay.play();
+		}
 	}
 	
 	

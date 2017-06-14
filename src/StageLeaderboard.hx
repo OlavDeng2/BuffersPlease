@@ -35,7 +35,7 @@ class StageLeaderboard extends Sprite
 
 	public static function start() 
 	{
-		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0);
+		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0,1,1);
 		UIButton.mainMenuButton(360, 800);
 		//displayLeaderboard();
 		GameManager.getLeaderboard();
