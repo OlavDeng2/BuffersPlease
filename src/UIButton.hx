@@ -170,6 +170,9 @@ class UIButton extends Button
 		SoundManager.playSFX("MenuSelect");
 		
 		SoundManager.toggleMusic();
+		
+		UIButton.musicOnButton(600, 900);
+		myStage.removeChild(pressableMusicOffButton);
 	}
 	
 	
@@ -198,6 +201,11 @@ class UIButton extends Button
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
+		
+		SoundManager.toggleMusic();
+		
+		UIButton.musicOffButton(600, 900);
+		myStage.removeChild(pressableMusicOnButton);
 	}
 	
 	//Mixing Minigame Button(bell)
