@@ -20,7 +20,8 @@ class SoundManager
 	static var playedMusic:Sound;
 	static var sfxSoundPlay:Sound;
 	static var musicPlaying:Bool = true;
-	static var musicGain:Float = 0.05;
+	static var miniGameMusicPlaying: Bool = false;
+	static var musicGain:Float = 0.07;
 	
 	//plays music on function call + musicName 
 	public static function playMusic(musicName:String)
@@ -54,6 +55,30 @@ class SoundManager
 	}
 	
 	
+	//checks which music needs to be played
+	public static function checkGameMusic(gameMode:String)
+	{
+		//checks which game mode is being played/shown
+		if (gameMode == "mixing")
+		{
+			playMusic("ChemShackMiniGame");
+			
+			miniGameMusicPlaying = true;
+		}
+		
+		if (gameMode == "normalGame")
+		{
+			if (miniGameMusicPlaying == true)
+			{
+				playMusic("ChemShackMainGame");
+				
+				miniGameMusicPlaying = false;
+			}
+		}
+	}
+	
+	
+	//when called turns music gain down for 0.01 out of a maximum of 0.07
 	public static function musicGainSofter()
 	{
 		//if there is music playing, stops music
@@ -79,7 +104,7 @@ class SoundManager
 	{
 		//if there is music playing, stops music
 		musicGain += 0.01;
-		if (musicGain >= 0.05) musicGain = 0.05;
+		if (musicGain >= 0.07) musicGain = 0.07;
 		
 		
 		//if there musicPlaying is false, set it to true and plays music

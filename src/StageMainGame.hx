@@ -41,7 +41,8 @@ class StageMainGame extends Sprite
 		UIButton.chemGuideButton(595, 505);
 		UIButton.cupboardOpenButton(360, 1065);
 		UIButton.notepadButton(120, 720);
-		UIButton.mainMenuButton(600, 900);
+		
+		//mainmenu button removed if needed add here*
 		
 	}
 	

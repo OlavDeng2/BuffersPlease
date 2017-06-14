@@ -60,6 +60,9 @@ class SceneManager
 		myStage.removeChildren();
 		StageMixing.setup(myStage);
 		StageMixing.start();
+		
+		//checks if music needs to be changed
+		SoundManager.checkGameMusic("mixing");
 	}
 		
 	public static function switchToStageMainGame()
@@ -67,5 +70,8 @@ class SceneManager
 		myStage.removeChildren();
 		StageMainGame.setup(myStage);
 		StageMainGame.start();
+		
+		//checks if music needs to be cahnged
+		SoundManager.checkGameMusic("normalGame");
 	}
 }

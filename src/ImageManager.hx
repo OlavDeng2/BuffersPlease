@@ -17,6 +17,9 @@ class ImageManager
 		//variable to store the current stage that is being worked with
 	private static var myStage:Stage;
 	
+	//public variables
+	public static var Image:Bitmap;
+	
 	//This function gets the current stage from the scene manager and sets it in this class so that all the buttons have the correct stage they are working with
 	private static function setMyStage()
 	{
@@ -31,7 +34,7 @@ class ImageManager
 		setMyStage();
 		
 		var imageData = Assets.getBitmapData(imagePath);
-		var Image = new Bitmap(imageData);
+		Image = new Bitmap(imageData);
 		
 		//Uncomment when ready, but for now olav go go bed bed.
 		Image.x = xPos;
@@ -42,4 +45,9 @@ class ImageManager
 		
 	}
 	
+	
+	public static function removeImage()
+	{
+		myStage.removeChild(Image);
+	}
 }
