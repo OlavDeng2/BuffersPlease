@@ -20,6 +20,12 @@ class UIButton extends Button
 	//variable to store the current stage that is being worked with
 	private static var myStage:Stage;
 	
+	//public variabls for closing buttons
+	public static var pressableChemGuideButton:Button;
+	public static var pressableNotepadButton:Button;
+	public static var chemGuideButtonPressed:Bool = false;
+	public static var notepadButtonPressed:Bool = false;
+	
 	//This function gets the current stage from the scene manager and sets it in this class so that all the buttons have the correct stage they are working with
 	private static function setMyStage()
 	{
@@ -283,7 +289,8 @@ class UIButton extends Button
 	public static function notepadButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableNotepadButton:Button = new Button("Notepad");
+		
+		pressableNotepadButton = new Button("Notepad");
 		
 		pressableNotepadButton.y = yPos;
 		pressableNotepadButton.x = xPos;
@@ -298,11 +305,44 @@ class UIButton extends Button
 	{
 		var pressableNotepadButton:Button = cast(event.target);
 		Sys.println("notepad now opens");
-		ImageManager.addImage('img/Player Interface/NotepadOpen.png', 75, 75);
-
 		
+		if (notepadButtonPressed == false)
+		{
+			ImageManager.addImage('img/Player Interface/NotepadOpen.png', 75, 75);
+			
+			closeNotepadButton((pressableNotepadButton.x + pressableNotepadButton.width / 2), (pressableNotepadButton.y + pressableNotepadButton.height / 2));
+			
+			notepadButtonPressed = true;
+		}
+
 		//Play sound effect
 		SoundManager.playSFX("Book");
+	}
+	
+	// Close notepad button
+	public static function closeNotepadButton(xPos:Float, yPos:Float)
+	{
+		setMyStage();
+		
+		var pressableCloseNotepadButton:Button = new Button("Close");
+		
+		pressableCloseNotepadButton.y = yPos;
+		pressableCloseNotepadButton.x = xPos;
+		
+		myStage.addChild(pressableCloseNotepadButton);
+		
+		pressableCloseNotepadButton.addEventListener(MouseEvent.CLICK, closeNotepadButtonPress);
+	}
+	
+	private static function closeNotepadButtonPress(event:MouseEvent)
+	{
+		var pressableCloseNotepadButton:Button = cast(event.target);
+		Sys.println("closing object");
+		
+		notepadButtonPressed = false;
+		
+		myStage.removeChild(pressableCloseNotepadButton);
+		ImageManager.removeImage();
 	}
 	
 	//Chem Guide button
@@ -310,12 +350,13 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableChemGuideButton:Button = new Button("Chem_Guide");
+		pressableChemGuideButton = new Button("Chem_Guide");
 		
 		pressableChemGuideButton.y = yPos;
 		pressableChemGuideButton.x = xPos;
 		
 		myStage.addChild(pressableChemGuideButton);
+		
 		
 		pressableChemGuideButton.addEventListener(MouseEvent.CLICK, chemGuideButtonPress);
 	}
@@ -324,10 +365,46 @@ class UIButton extends Button
 	{
 		var pressableChemGuideButton:Button = cast(event.target);
 		Sys.println("The chemguide now opens");
-		ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75);
+		
+		//checks if the chemguide is already pressed so it won't open a second one
+		if (chemGuideButtonPressed == false)
+		{
+			ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75);
+			
+			closeChemGuideButton((pressableChemGuideButton.x + pressableChemGuideButton.width / 2), (pressableChemGuideButton.y + pressableChemGuideButton.height / 2));
+			
+			chemGuideButtonPressed = true;
+		}
 		
 		//Play sound effect
 		SoundManager.playSFX("Book");
+	}
+	
+	//CloseChemguide button
+	public static function closeChemGuideButton(xPos:Float, yPos:Float)
+	{
+		setMyStage();
+		
+		var pressableCloseChemGuideButton:Button = new Button("Close");
+		
+		
+		pressableCloseChemGuideButton.y = yPos;
+		pressableCloseChemGuideButton.x = xPos;
+		
+		myStage.addChild(pressableCloseChemGuideButton);
+		
+		pressableCloseChemGuideButton.addEventListener(MouseEvent.CLICK, closeChemGuideButtonPress);
+	}
+	
+	private static function closeChemGuideButtonPress(event:MouseEvent)
+	{
+		var pressableCloseChemGuideButton:Button = cast(event.target);
+		Sys.println("closing object");
+		
+		chemGuideButtonPressed = false;
+		
+		myStage.removeChild(pressableCloseChemGuideButton);
+		ImageManager.removeImage();
 	}
 	
 	//opening the cupboard
@@ -385,4 +462,6 @@ class UIButton extends Button
 		//Play sound effect
 		SoundManager.playSFX("Cupboard");
 	}
+	
+	
 }
