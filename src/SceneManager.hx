@@ -74,4 +74,12 @@ class SceneManager
 		//checks if music needs to be cahnged
 		SoundManager.checkGameMusic("normalGame");
 	}
+	
+	//This function switches you to the tutorial Stage
+	public static function switchToStageTutorial()
+	{
+		myStage.removeChildren();
+		StageTutorial.setup(myStage);
+		StageTutorial.start();
+	}
 }
