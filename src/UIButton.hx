@@ -465,5 +465,69 @@ class UIButton extends Button
 		SoundManager.playSFX("Cupboard");
 	}
 	
+	public static function playTutorialButton(xPos:Float, yPos:Float)
+	{
+		setMyStage();
+		
+		var pressablePlayTutorialButton:Button = new Button("PlayTutorial");
+		
+		pressablePlayTutorialButton.y = yPos;
+		pressablePlayTutorialButton.x = xPos;
+		
+		myStage.addChild(pressablePlayTutorialButton);
+		
+		UIButton.tutorialYesButton((pressablePlayTutorialButton.x + 100),(pressablePlayTutorialButton.y + 100));
+		UIButton.tutorialNoButton((pressablePlayTutorialButton.x - 100),(pressablePlayTutorialButton.y + 100));
+	}
 	
+	public static function tutorialYesButton(xPos:Float, yPos:Float)
+	{
+		setMyStage();
+		
+		var pressableTutorialYesButton:Button = new Button("TutorialPlay");
+		
+		
+		pressableTutorialYesButton.y = yPos;
+		pressableTutorialYesButton.x = xPos;
+		
+		myStage.addChild(pressableTutorialYesButton);
+		
+		pressableTutorialYesButton.addEventListener(MouseEvent.CLICK, tutorialYesButtonPress);
+	}
+	
+	private static function tutorialYesButtonPress(event:MouseEvent)
+	{
+		var pressableTutorialYesButton:Button = cast (event.target);
+		//removes all children so that nothing is remaining of the previous stage.
+		SceneManager.switchToStageTutorial();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
+	}
+	
+	public static function tutorialNoButton(xPos:Float, yPos:Float)
+	{
+		setMyStage();
+		
+		var pressableTutorialNoButton:Button = new Button("Close");
+		
+		
+		pressableTutorialNoButton.y = yPos;
+		pressableTutorialNoButton.x = xPos;
+		
+		myStage.addChild(pressableTutorialNoButton);
+		
+		pressableTutorialNoButton.addEventListener(MouseEvent.CLICK, tutorialNoButtonPress);
+	}
+	
+	private static function tutorialNoButtonPress(event : MouseEvent)
+	{
+		
+		var pressableStartButton:Button = cast (event.target);
+		//removes all children so that nothing is remaining of the previous stage.
+		SceneManager.switchToStageCharacterCreation();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
+	}
 }

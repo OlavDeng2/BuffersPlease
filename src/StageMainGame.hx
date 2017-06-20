@@ -34,6 +34,7 @@ class StageMainGame extends Sprite
 	public static function start() 
 	{
 		SceneManager.setMyStage(myStage);
+		Sys.println("MainGame");
 		
 		addShack();
 		UIButton.bufferReadyButton(600, 750);

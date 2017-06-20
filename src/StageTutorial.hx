@@ -5,6 +5,13 @@ import openfl.display.Sprite;
 import openfl.Assets;
 import openfl.display.Stage;
 
+import openfl.text.TextField;
+import openfl.text.TextFieldType;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.Font;
+import openfl.text.TextFormat;
+import openfl.text.TextFormatAlign;
+
 /**
  * ...
  * @author nico
@@ -15,6 +22,7 @@ class StageTutorial extends Sprite
 	
 	//Declare some necesarry variables
 	private static var myStage:Stage;
+	private static var tutorialNumber:Int = 0;
 	
 	//do the necesarry setups
 	public static function setup(stageref:Stage)
@@ -26,10 +34,11 @@ class StageTutorial extends Sprite
 	public static function start() 
 	{
 		SceneManager.setMyStage(myStage);
+		Sys.println("Tutorial");
 		
 		addShack();
-		UIButton.bufferReadyButton(600, 750);
 		UIButton.mixingButton(85, 460);
+		UIButton.bufferReadyButton(600, 750);
 		UIButton.chemGuideButton(595, 505);
 		UIButton.cupboardOpenButton(360, 1065);
 		UIButton.notepadButton(120, 720);

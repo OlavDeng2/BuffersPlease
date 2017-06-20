@@ -196,7 +196,8 @@ class StageCharacterCreation extends Sprite
 		displayStory(storyLocation);
 		if (storyLocation == storyLength)
 		{
-			UIButton.nextButton(600, 900);
+			//UIButton.nextButton(600, 900);
+			UIButton.playTutorialButton(360, 400);
 		}
 		
 		else
