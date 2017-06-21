@@ -20,7 +20,7 @@ class SoundManager
 	static var playedMusic:Sound;
 	static var sfxSoundPlay:Sound;
 	static var musicPlaying:Bool = true;
-	static var musicGain:Float = 0.05;
+	static var musicGain:Float = 0.5;
 	
 	//plays music on function call + musicName 
 	public static function playMusic(musicName:String)
