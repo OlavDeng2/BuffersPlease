@@ -49,8 +49,8 @@ class StageMainMenu extends Sprite
 	static function addBackground()
 	{
 		ImageManager.addImage('img/shackUI/Menu.png', 0, 0, 1, 1);
-		ImageManager.addImage('img/shackUI/Noon.png', 0, 0, 1, 1);
-		ImageManager.addImage('img/shackUI/Logo.png', 180, 0, 0.5, 0.5);
+		//ImageManager.addImage('img/shackUI/Noon.png', 0, 0, 1, 1);
+		//ImageManager.addImage('img/shackUI/Logo.png', 180, 0, 0.5, 0.5);
 	}
 
 	
