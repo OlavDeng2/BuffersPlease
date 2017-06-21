@@ -8,7 +8,6 @@ import openfl.display.Sprite;
 import openfl.display.Stage;
 
 
-
 /**
  * ...
  * @author Olav
@@ -26,13 +25,22 @@ class StageMixing extends Sprite
 		myStage = stageref;
 	}
 
-	public static function start() 
+	public static function start(namePuzzle:String) 
 	{
-		//UIButton.mainMenuButton(360, 360);
-		UIButton.nextButton(360, 900);
-		ImageManager.addImage("img/shackUI/Meter.png", 400, 400,1,1);
-		GameManager.getPuzzle("Mixing1");
+		ImageManager.addImage("img/shackUI/MixingBackground.png", 0, 0, 1, 1);
+		setPuzzle(namePuzzle);
+	}
+	
+	//sets the name of the puzzle and gets it from Gamemanager
+	public static function setPuzzle(puzzleName:String)
+	{
+		var puzzleID = puzzleName;
+		GameManager.getPuzzle(puzzleID);
 		
+		if (puzzleID == "Mixing1")
+		{
+			UIButton.nextButton(360, 900);
+		}
 	}
 	
 

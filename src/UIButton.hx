@@ -23,6 +23,7 @@ class UIButton extends Button
 	//public variabls for closing buttons
 	public static var pressableChemGuideButton:Button;
 	public static var pressableNotepadButton:Button;
+	public static var pressableNextButton:Button;
 	public static var chemGuideButtonPressed:Bool = false;
 	public static var notepadButtonPressed:Bool = false;
 	
@@ -30,15 +31,12 @@ class UIButton extends Button
 	private static function setMyStage()
 	{
 		myStage = SceneManager.getMyStage();
-
 	}
 	
 	//Exit Button Function
 	public static function exitButton(xPos:Int, yPos:Int)
 	{
-		
 		setMyStage();
-		
 		
 		var pressableExitButton:Button = new Button("Quit");
 		//set position
@@ -61,10 +59,7 @@ class UIButton extends Button
 		
 		//Exit the game
 		System.exit(0);
-		
-
 	}
-	
 	
 	
 	//Start Button Function
@@ -86,7 +81,6 @@ class UIButton extends Button
 	
 	private static function startButtonPress(event : MouseEvent)
 	{
-		
 		var pressableStartButton:Button = cast (event.target);
 		//removes all children so that nothing is remaining of the previous stage.
 		SceneManager.switchToStageCharacterCreation();
@@ -100,7 +94,7 @@ class UIButton extends Button
 	public static function nextButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableNextButton:Button = new Button( "Play");
+		pressableNextButton = new Button( "Play");
 		//set position
 		pressableNextButton.y = yPos;
 		pressableNextButton.x = xPos;
@@ -298,7 +292,6 @@ class UIButton extends Button
 		myStage.addChild(pressableNotepadButton);
 		
 		pressableNotepadButton.addEventListener(MouseEvent.CLICK, notepadButtonPress);
-		
 	}
 	
 	private static function notepadButtonPress(event:MouseEvent)
@@ -373,7 +366,6 @@ class UIButton extends Button
 			ImageManager.addImage('img/Player Interface/ChemGuideOpen.png', 75, 75, 1, 1);
 			
 			closeChemGuideButton(80,80);
-			//closeChemGuideButton((pressableChemGuideButton.x + pressableChemGuideButton.width / 2), (pressableChemGuideButton.y + pressableChemGuideButton.height / 2));
 			
 			chemGuideButtonPressed = true;
 		}
@@ -465,6 +457,9 @@ class UIButton extends Button
 		SoundManager.playSFX("Cupboard");
 	}
 	
+	
+	
+	//Tutorial button functions
 	public static function playTutorialButton(xPos:Float, yPos:Float)
 	{
 		setMyStage();
@@ -477,7 +472,9 @@ class UIButton extends Button
 		myStage.addChild(pressablePlayTutorialButton);
 		
 		UIButton.tutorialYesButton((pressablePlayTutorialButton.x + 100),(pressablePlayTutorialButton.y + 100));
-		UIButton.tutorialNoButton((pressablePlayTutorialButton.x - 100),(pressablePlayTutorialButton.y + 100));
+		UIButton.tutorialNoButton((pressablePlayTutorialButton.x - 100), (pressablePlayTutorialButton.y + 100));
+		
+		myStage.removeChild(pressableNextButton);
 	}
 	
 	public static function tutorialYesButton(xPos:Float, yPos:Float)
@@ -523,11 +520,63 @@ class UIButton extends Button
 	private static function tutorialNoButtonPress(event : MouseEvent)
 	{
 		
-		var pressableStartButton:Button = cast (event.target);
+		var pressableTutorialNoButton:Button = cast (event.target);
 		//removes all children so that nothing is remaining of the previous stage.
-		SceneManager.switchToStageCharacterCreation();
+		SceneManager.switchToStageMainGame();
 		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
+	}
+	
+	public static function tutorialNextButton(xPos:Float, yPos:Float)
+	{
+		setMyStage();
+		
+		var pressableTutorialNextButton = new Button("TutorialPlay");
+		
+		pressableTutorialNextButton.y = yPos;
+		pressableTutorialNextButton.x = xPos;
+		
+		myStage.addChild(pressableTutorialNextButton);
+		
+		pressableTutorialNextButton.addEventListener(MouseEvent.CLICK, tutorialNextButtonPress);
+	}
+	
+	private static function tutorialNextButtonPress(event : MouseEvent)
+	{
+		var pressableTutorialNextButton:Button = cast(event.target);
+		
+		//updates the tutorial and the text of the tutorial 
+		StageTutorial.updateTutorial();
+		
+		//Play sound effect
+		SoundManager.playSFX("MenuSelect");
+	}
+	
+	//Mixing Minigame tutorial Button
+	public static function tutorialMixingButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableTutorialMixingButton:Button = new Button("Beaker");
+		
+		pressableTutorialMixingButton.y = yPos;
+		pressableTutorialMixingButton.x = xPos;
+		
+		myStage.addChild(pressableTutorialMixingButton);
+		
+		pressableTutorialMixingButton.addEventListener(MouseEvent.CLICK, tutorialMixingButtonPress);
+	}
+	
+	private static function tutorialMixingButtonPress(event:MouseEvent)
+	{
+		var pressableTutorialMixingButton:Button = cast(event.target);
+		
+		//updates the tutorial and the text of the tutorial
+		StageTutorial.updateTutorial();
+		
+		//Play sound effect
+		SoundManager.playSFX("Flasks");
+		
+		myStage.removeChild(pressableTutorialMixingButton);
 	}
 }

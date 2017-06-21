@@ -52,7 +52,6 @@ class StageCharacterCreation extends Sprite
 		SceneManager.setMyStage(myStage);
 		inputCharacterName();
 		acceptCharacterName(600, 900);
-		
 	}
 	
 	
@@ -64,7 +63,6 @@ class StageCharacterCreation extends Sprite
 	//Write the code for the next story bit is required, as it wont all fit on one screen
 	static function displayStory(storyId:Int )
 	{
-		
 		var fontSize = 40;
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
@@ -92,9 +90,6 @@ class StageCharacterCreation extends Sprite
 
 		// add the text field to the screen
 		myStage.addChild(storyTextField);
-		
-		
-
 	}
 	
 	
@@ -129,13 +124,11 @@ class StageCharacterCreation extends Sprite
 		
 		myStage.addChild(pleaseEnterCharacterNameTextField);
 		myStage.addChild( characterNameField );
-		
 	}
 	
 	//store char name and start displaying story
 	static function acceptCharacterName(xPos:Int, yPos:Int)
 	{
-
 		var acceptCharacterNameButton:Button = new Button("Play");
 		
 		acceptCharacterNameButton.y = yPos;
@@ -196,15 +189,15 @@ class StageCharacterCreation extends Sprite
 		displayStory(storyLocation);
 		if (storyLocation == storyLength)
 		{
-			//UIButton.nextButton(600, 900);
-			UIButton.playTutorialButton(360, 400);
+			//adds playTutorialButton
+			myStage.removeChild(nextStoryButton);
+			UIButton.playTutorialButton(360, 490);
 		}
-		
 		else
 		{
 			nextStory(600, 900);
-
 		}
+		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
 	}

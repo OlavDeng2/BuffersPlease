@@ -30,6 +30,7 @@ class GameManager
 	static var currentScore:Int;
 	static var currentName:String;
 	static var characterTextInput:TextField;
+	public static var puzzleName:String = "nothing";
 	
 	static var selection:Array<Atom> = [];
 
@@ -150,7 +151,7 @@ class GameManager
 		 */
 		var xPos: Int = 50;
 		var yPos: Int = 50;
-		
+		puzzleName = puzzle;
 		
 		//create the atom variables
 		var nothing:Int = 0;
@@ -328,19 +329,40 @@ class GameManager
 		atom.scaleX = 1.1;
 		atom.scaleY = 1.1;
 		
-		if (selection.indexOf(atom) == -1)
+		//if it is normal puzzle, has standert rules 
+		if (puzzleName == "Mixing1")
 		{
-			selection.push(atom);
+			if (selection.indexOf(atom) == -1)
+			{
+				selection.push(atom);
+			}
+			
+			//3 cards can be selected, if selected check if it creates a set
+			if (selection.length == 3)
+			{
+				
+				checkIfMixed();
+
+				//no matter if it fails or not, create a new array
+				selection = new Array<Atom>();
+			}
 		}
 		
-		//3 cards can be selected, if selected check if it creates a set
-		if (selection.length == 3)
+		//if it is not a normal puzzle, it has differnet rules
+		if (puzzleName != "Mixing1")
 		{
+			if (selection.indexOf(atom) == -1)
+			{
+				selection.push(atom);
+			}
 			
-			checkIfMixed();
-
-			//no matter if it fails or not, create a new array
-			selection = new Array<Atom>();
+			if (selection.length == 1)
+			{
+				checkIfTutorialMixed();
+				
+				//creates a new aray
+				selection = new Array<Atom>();
+			}
 		}
 	}
 	
@@ -363,16 +385,14 @@ class GameManager
 		if (notMixed == false)
 		{
 			SoundManager.playSFX("Mixing");
-
-
+			
 			for (atom in selection)
 			{
 				selection.pop;
 				myStage.removeChild(atom);
 			}
-	
-			
 		}
+		
 		//if conditions not met, unselect cards
 		else
 		{
@@ -382,7 +402,51 @@ class GameManager
 		//reset card size
 		if(notMixed) 
 		{
+			SoundManager.playSFX("WrongMix");
+			for (card in selection)
+			{
+				card.scaleX = 1.0;
+				card.scaleY = 1.0;
+			}
+		}
+	}
+	
+	static function checkIfTutorialMixed()
+	{
+		//bool for set
+		var notMixed : Bool = true;
+		
+		//General Value Check
+		//Check if the card values are the same
+		if (selection[0].element == "O")
+		{
+			notMixed = false;
+		}
+		
+		if (notMixed == false)
+		{
+			SoundManager.playSFX("Mixing");
+			{
 			
+			for (atom in selection)
+			{
+				selection.pop;
+				myStage.removeChild(atom);
+				myStage.removeChildren();
+				StageTutorial.updateTutorial();
+			}
+			}
+		}
+		
+		//if conditions not met, unselect cards
+		else
+		{
+			notMixed = true;
+		}
+		
+		//reset card size
+		if(notMixed) 
+		{
 			SoundManager.playSFX("WrongMix");
 			for (card in selection)
 			{
