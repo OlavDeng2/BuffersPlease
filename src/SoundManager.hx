@@ -21,7 +21,7 @@ class SoundManager
 	static var sfxSoundPlay:Sound;
 	static var musicPlaying:Bool = true;
 	static var miniGameMusicPlaying: Bool = false;
-	static var musicGain:Float = 0.5;
+	static var musicGain:Float = 0.25;
 	
 	//plays music on function call + musicName 
 	public static function playMusic(musicName:String)

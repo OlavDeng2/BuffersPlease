@@ -183,7 +183,7 @@ class StageTutorial extends Sprite
 		}
 		if (tutorialID == 13)
 		{
-			ImageManager.addImage("img/Buttons/Chem_Guide.png", 595, 505, 1, 1);
+			UIButton.chemGuideButton(595, 505);
 		}
 		if (tutorialID == 15)
 		{

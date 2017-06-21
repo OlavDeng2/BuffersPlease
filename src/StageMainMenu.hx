@@ -50,7 +50,7 @@ class StageMainMenu extends Sprite
 	{
 		ImageManager.addImage('img/shackUI/Menu.png', 0, 0, 1, 1);
 		//ImageManager.addImage('img/shackUI/Noon.png', 0, 0, 1, 1);
-		//ImageManager.addImage('img/shackUI/Logo.png', 180, 0, 0.5, 0.5);
+		ImageManager.addImage('img/shackUI/Logo.png', 40, 50, 1, 1);
 	}
 
 	
