@@ -148,7 +148,7 @@ class UIButton extends Button
 	public static function musicOffButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMusicOffButton:Button = new Button("Music Off");
+		var pressableMusicOffButton:Button = new Button("Music On");
 		//set position
 		pressableMusicOffButton.y = yPos;
 		pressableMusicOffButton.x = xPos;
@@ -163,9 +163,7 @@ class UIButton extends Button
 	private static function musicOffButtonPress(event:MouseEvent)
 	{
 		var pressableMusicOffButton:Button = cast(event.target);
-		
-		Sys.println("Music is now turned off");
-		
+				
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
 		
@@ -181,7 +179,7 @@ class UIButton extends Button
 	{
 		setMyStage();
 		
-		var pressableMusicOnButton:Button = new Button("Music On");
+		var pressableMusicOnButton:Button = new Button("Music Off");
 		//set position
 		pressableMusicOnButton.y = yPos;
 		pressableMusicOnButton.x = xPos;
@@ -195,10 +193,7 @@ class UIButton extends Button
 	
 	private static function musicOnButtonPress(event:MouseEvent)
 	{
-		var pressableMusicOnButton:Button = cast(event.target);
-		
-		Sys.println("Music is now turned on");
-		
+		var pressableMusicOnButton:Button = cast(event.target);		
 		//Play sound effect
 		SoundManager.playSFX("MenuSelect");
 		
