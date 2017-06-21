@@ -12,7 +12,7 @@ import openfl.events.MouseEvent;
  */
 class Atom extends Sprite
 {
-	
+	//This is the base class for the different atoms
 	public var element:String;
 
 	public function new(_element:String) 

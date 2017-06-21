@@ -13,8 +13,9 @@ import openfl.display.Stage;
 class ImageManager 
 {
 
+	// DO NOTE THIS IS JUST PLACE HOLDER AND WILL(or at least should) BE REMOVED AT A LATER STAGE
 	
-		//variable to store the current stage that is being worked with
+	//variable to store the current stage that is being worked with
 	private static var myStage:Stage;
 	
 	//public variables

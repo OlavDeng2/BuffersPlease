@@ -80,6 +80,7 @@ class SceneManager
 		SoundManager.checkGameMusic("mixing");
 	}
 		
+	//function to switch to the main game from any other scene.
 	public static function switchToStageMainGame()
 	{
 		myStage.removeChildren();
