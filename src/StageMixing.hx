@@ -24,7 +24,8 @@ class StageMixing extends Sprite
 	{
 		myStage = stageref;
 	}
-
+	
+	//This starts the mixing mini game as well as gets which puzzle is requested from the MainGame stage.
 	public static function start(namePuzzle:String) 
 	{
 		ImageManager.addImage("img/shackUI/MixingBackground.png", 0, 0, 1, 1);
@@ -43,5 +44,4 @@ class StageMixing extends Sprite
 		}
 	}
 	
-
 }

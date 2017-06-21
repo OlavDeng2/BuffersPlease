@@ -42,18 +42,20 @@ class StageTutorial extends Sprite
 		startTutorial();
 	}
 	
+	//adds the basic shack to the screen
 	static function addShack()
 	{
-		ImageManager.addImage("img/shackUI/Background.png",0,0,1,1);
+		ImageManager.addImage("img/shackUI/Background.png", 0, 0, 1, 1);
+		ImageManager.addImage('img/shackUI/Noon.png', 0, 0, 1, 1);
 		ImageManager.addImage("img/shackUI/CupboardClosed.png",0,0,1,1);
 		ImageManager.addImage("img/shackUI/Screen.png",0,0,1,1);
 		ImageManager.addImage("img/shackUI/Desk.png",0,0,1,1);
 		//ImageManager.addImage("img/shackUI/Meter.png", 0, 0,1,1);
 	}
 	
+	//function to start the tutorial
 	public static function startTutorial()
 	{
-		Sys.println("tutorial started");
 		
 		tutorialTextField = new TextField();
 		

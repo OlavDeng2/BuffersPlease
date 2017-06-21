@@ -19,6 +19,8 @@ import GameManager;
 /**
  * ...
  * @author Olav
+ * 
+ * This stage is the leaderboard stage, all it does is display the leaderboard and a home button
  */
 class StageLeaderboard extends Sprite
 {
@@ -35,9 +37,8 @@ class StageLeaderboard extends Sprite
 
 	public static function start() 
 	{
-		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0,1,1);
+		ImageManager.addImage('img/shackUI/Menu.png', 0, 0,1,1);
 		UIButton.mainMenuButton(360, 800);
-		//displayLeaderboard();
 		GameManager.getLeaderboard();
 	}
 	

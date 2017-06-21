@@ -56,7 +56,9 @@ class StageCharacterCreation extends Sprite
 	
 	static function addBackground()
 	{
-		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0, 1, 1);
+		ImageManager.addImage('img/shackUI/Menu.png', 0, 0, 1, 1);
+		//ImageManager.addImage('img/shackUI/Noon.png', 0, 0, 1, 1);
+
 	}
 	
 	//Write the code for the next story bit is required, as it wont all fit on one screen

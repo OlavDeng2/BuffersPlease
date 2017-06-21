@@ -37,10 +37,7 @@ class StageMainMenu extends Sprite
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		
-		
-		addBackground();
-		showTitle();
-	
+		addBackground();	
 		
 		//Really self explanatory, if not see the UIButton class
 		UIButton.startButton(360, 400);
@@ -51,11 +48,10 @@ class StageMainMenu extends Sprite
 	
 	static function addBackground()
 	{
-		ImageManager.addImage('img/Player Interface/Menu.png', 0, 0, 1, 1);
+		ImageManager.addImage('img/shackUI/Menu.png', 0, 0, 1, 1);
+		ImageManager.addImage('img/shackUI/Noon.png', 0, 0, 1, 1);
+		ImageManager.addImage('img/shackUI/Logo.png', 180, 0, 0.5, 0.5);
 	}
-	static function showTitle()
-	{
-		//test
-	}
+
 	
 }
