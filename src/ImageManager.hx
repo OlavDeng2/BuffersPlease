@@ -24,13 +24,10 @@ class ImageManager
 	private static function setMyStage()
 	{
 		myStage = SceneManager.getMyStage();
-
 	}
 	
-	
-	public static function addImage(imagePath:String, xPos:Int, yPos:Int, xScale:Float, yScale:Float) //Have to implement the changing of coords
+	public static function addImage(imagePath:String, xPos:Float, yPos:Float, xScale:Float, yScale:Float) //Have to implement the changing of coords
 	{
-		
 		setMyStage();
 		
 		var imageData = Assets.getBitmapData(imagePath);
@@ -40,11 +37,21 @@ class ImageManager
 		Image.x = xPos;
 		Image.y = yPos;
 		
+		if (imagePath == "img/Buttons/Beaker.png")
+		{
+			Image.x -= (Image.width / 2);
+			Image.y -= (Image.height / 2);
+		}
+		if (imagePath == "img/Buttons/Chem_Guide.png")
+		{
+			Image.x -= (Image.width / 2);
+			Image.y -= (Image.height / 2);
+		}
+		
 		Image.scaleX = xScale;
 		Image.scaleY = yScale;
 		
 		myStage.addChild(Image);
-		
 	}
 	
 	

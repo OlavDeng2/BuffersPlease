@@ -57,9 +57,24 @@ class SceneManager
 	//This function switches you to the mixing mini game
 	public static function switchToStageMixing()
 	{
+		Sys.println("Normal Mixing");
+		
 		myStage.removeChildren();
 		StageMixing.setup(myStage);
-		StageMixing.start();
+		StageMixing.start("Mixing1");
+		
+		//checks if music needs to be changed
+		SoundManager.checkGameMusic("mixing");
+	}
+	
+	//This function switches you to the tutorial of the mixing mini game
+	public static function switchToStageTutorialMixing()
+	{
+		Sys.println("Tutorial Mixing");
+		
+		myStage.removeChildren();
+		StageMixing.setup(myStage);
+		StageMixing.start("Mixing1");
 		
 		//checks if music needs to be changed
 		SoundManager.checkGameMusic("mixing");
@@ -73,5 +88,13 @@ class SceneManager
 		
 		//checks if music needs to be cahnged
 		SoundManager.checkGameMusic("normalGame");
+	}
+	
+	//This function switches you to the tutorial Stage
+	public static function switchToStageTutorial()
+	{
+		myStage.removeChildren();
+		StageTutorial.setup(myStage);
+		StageTutorial.start();
 	}
 }

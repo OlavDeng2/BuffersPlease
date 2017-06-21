@@ -14,11 +14,7 @@ class StageMainGame extends Sprite
 {
 	//add variables here if needed
 		
-	
-	
 	//do the necesarry setups
-	
-	
 		
 	//Declare some necesarry variables
 	private static var myStage:Stage;
@@ -34,6 +30,7 @@ class StageMainGame extends Sprite
 	public static function start() 
 	{
 		SceneManager.setMyStage(myStage);
+		Sys.println("MainGame");
 		
 		addShack();
 		UIButton.bufferReadyButton(600, 750);
@@ -43,7 +40,6 @@ class StageMainGame extends Sprite
 		UIButton.notepadButton(120, 720);
 		
 		//mainmenu button removed if needed add here*
-		
 	}
 	
 	static function addShack()
@@ -52,7 +48,6 @@ class StageMainGame extends Sprite
 		ImageManager.addImage("img/shackUI/Client.png",0,0,1,1);
 		ImageManager.addImage("img/shackUI/CupboardClosed.png",0,0,1,1);
 		ImageManager.addImage("img/shackUI/Screen.png",0,0,1,1);
-		//ImageManager.addImage("img/shackUI/CupboardOpened.png");
 		ImageManager.addImage("img/shackUI/Desk.png",0,0,1,1);
 		ImageManager.addImage("img/shackUI/Meter.png", 0, 0,1,1);
 		
