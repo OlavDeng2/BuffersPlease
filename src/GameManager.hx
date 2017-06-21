@@ -30,7 +30,6 @@ class GameManager
 	static var currentScore:Int;
 	static var currentName:String;
 	static var characterTextInput:TextField;
-	
 	static var selection:Array<Atom> = [];
 
 	
@@ -67,6 +66,7 @@ class GameManager
 		Sys.println(currentName);
 	}
 	
+	//Function to write the final score to the Data Base when called based on current name and current score.
 	public static function writeScoreToDB()
 	{
 		var cnx = Sqlite.open("DB/Data.db");
@@ -75,9 +75,12 @@ class GameManager
 		cnx.close();
 	}
 	
+	//This function gets the leaderboard from the database and displays it on screen
 	public static function getLeaderboard()
 	{
 		setMyStage();
+		
+		//Variable for numbering of the scores as well as used for placing of the scores on screen. 
 		var place:Int = 1;
 
 		
@@ -125,11 +128,6 @@ class GameManager
 		
 		// close the database
 		cnx.close();
-		
-		
-
-		
-		
 
 	}
 	
@@ -139,7 +137,7 @@ class GameManager
 	
 	public static function getPuzzle(puzzle:String)
 	{
-		/* Notes on what the different values represent in terms of atoms, It basically follows the periodic table
+		/* Notes on what the different values represent in terms of atoms, It basically follows the periodic table, expand this as more atoms are added.
 		 *  
 		 * 0 = nothing
 		 * 1 = hydrogen
@@ -151,15 +149,14 @@ class GameManager
 		var xPos: Int = 50;
 		var yPos: Int = 50;
 		
-		
 		//create the atom variables
 		var nothing:Int = 0;
 		var H:Int = 1;
 		var C:Int = 6;
 		var O:Int = 8;
 		var Na:Int = 11;
-		setMyStage();
 		
+		setMyStage();
 		
 		//Open the database*/
 		var cnx = Sqlite.open("DB/Data.db");
@@ -169,46 +166,30 @@ class GameManager
 		
 		for (row in mixingLevelData)
 		{
-			if (row.Collumn1 == 0)
-			{
-				
-				Sys.println("nothing was found");
-				//Do nothing
-			}
 
 			if (row.Collumn1 == H)
 			{
 				hydrogenAtom(xPos, yPos);
-				Sys.println("a Hydrogen Atom was found");
 			}
 				
 			if (row.Collumn1 == C)
 			{
 				carbonAtom(xPos, yPos);
-				Sys.println("a Carbon Atom was found");
 			}
 				
 			if (row.Collumn1 == O)
 			{
 				oxygenAtom(xPos, yPos);
-				Sys.println("an Oxygen Atom was found");
 			}
 				
 			if (row.Collumn1 == Na)
 			{
 				sodiumAtom(xPos, yPos);
-				Sys.println("a Sodium Atom was found");
 			}
 
 			
-			
+			//change the position of x to ensure atoms are placed in proper place
 			xPos += 150;
-			if (row.Collumn2 == 0)
-			{
-				
-				Sys.println("nothing was found");
-				//Do nothing
-			}
 
 			if (row.Collumn2 == H)
 			{
@@ -218,56 +199,43 @@ class GameManager
 			if (row.Collumn2 == C)
 			{
 				carbonAtom(xPos, yPos);	
-				Sys.println("a Carbon Atom was found");
 			}
 				
 			if (row.Collumn2 == O)
 			{
 				oxygenAtom(xPos, yPos);
-				Sys.println("an Oxygen Atom was found");
 			}
 				
 			if (row.Collumn2 == Na)
 			{
 				sodiumAtom(xPos, yPos);
-				Sys.println("a Sodium Atom was found");
 			}
 
-			
+			//change the position of x to ensure atoms are placed in proper place
 			xPos += 150;
-			if (row.Collumn3 == 0)
-			{
-				Sys.println("nothing was found");
-				//Do nothing
-			}
 
 			if (row.Collumn3 == H)
 			{
 				hydrogenAtom(xPos, yPos);
 
-				Sys.println("a Hydrogen Atom was found");
 			}
 			
 			if (row.Collumn3 == C)
 			{
 				carbonAtom(xPos, yPos);
-				Sys.println("a Carbon Atom was found");
 			}
 			
 			if (row.Collumn3 == O)
 			{
 				oxygenAtom(xPos, yPos);
-				Sys.println("an Oxygen Atom was found");
 			}
 			
 			if (row.Collumn3 == Na)
 			{
 				sodiumAtom(xPos, yPos);
-				Sys.println("a Sodium Atom was found");
-			}
-		
+			}	
 			
-			yPos += 150;
+			//reset xpos ready for next row.
 			xPos = 50;
 			
 		}
@@ -276,6 +244,8 @@ class GameManager
 		cnx.close();
 	}
 	
+	
+	//functions for the different atoms
 	private static function hydrogenAtom(xPos:Int, yPos:Int)
 	{
 		var hydrogenAtom:Atom = new Atom ("H");
@@ -317,14 +287,13 @@ class GameManager
 		
 	}
 	
+	//what happens if the atoms are selected.
 	private static function onAtomSelect(event:MouseEvent)
-	{
-		//Do Something
-		
+	{		
 		var atom:Atom = cast(event.target);
 		Sys.println("atom was selected");
 
-		//make card bigger so you can see it is selected
+		//make atom bigger so you can see it is selected
 		atom.scaleX = 1.1;
 		atom.scaleY = 1.1;
 		
@@ -333,7 +302,7 @@ class GameManager
 			selection.push(atom);
 		}
 		
-		//3 cards can be selected, if selected check if it creates a set
+		//3 atoms can be selected, checks if the combination is valid
 		if (selection.length == 3)
 		{
 			
@@ -344,16 +313,17 @@ class GameManager
 		}
 	}
 	
+	//function to check if it is a valid mix
 	static function checkIfMixed()
 	{
 
 		
-		//bool for set
+		//bool for if it is valid or not
 		var notMixed : Bool = true;
 		
 		
 		//General Value Check
-		//Check if the card values are the same
+		//Check if the atoms values are the same
 		if (selection[0].element == selection[1].element && selection[0].element == selection[2].element)
 		{
 			notMixed = false;
@@ -364,7 +334,6 @@ class GameManager
 		{
 			SoundManager.playSFX("Mixing");
 
-
 			for (atom in selection)
 			{
 				selection.pop;
@@ -373,13 +342,13 @@ class GameManager
 	
 			
 		}
-		//if conditions not met, unselect cards
+		//if conditions not met, unselect atoms
 		else
 		{
 			notMixed = true;
 		}
 		
-		//reset card size
+		//reset atom size
 		if(notMixed) 
 		{
 			

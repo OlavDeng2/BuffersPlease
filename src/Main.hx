@@ -20,6 +20,7 @@ class Main extends Sprite
 		StageMainMenu.setup(stage);
 		StageMainMenu.start();
 		
+		//start the music for the game
 		SoundManager.playMusic("ChemShackMainGame");
 
 	}

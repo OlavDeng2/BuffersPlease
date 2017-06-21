@@ -1,6 +1,6 @@
 package;
 
-//Import some shit
+//Import some things
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -20,11 +20,10 @@ import openfl.text.TextFormatAlign;
 /**
  * ...
  * @author Olav
+ * This class handles the character creation scene of the game
  */
 class StageCharacterCreation extends Sprite
 {
-
-		
 	//Declare some necesarry variables
 	private static var myStage:Stage;
 	
@@ -92,9 +91,6 @@ class StageCharacterCreation extends Sprite
 
 		// add the text field to the screen
 		myStage.addChild(storyTextField);
-		
-		
-
 	}
 	
 	
